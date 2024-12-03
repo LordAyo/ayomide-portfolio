@@ -5,10 +5,14 @@
 
 body {
     min-height: 100vh;
-    background: url("images/doodle1.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
+    background: url("images/doodle2.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
     color: #D1D1D1;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 header {
@@ -147,7 +151,7 @@ header {
     font-size: 2.1875rem;
     font-weight: 700;
     text-align: center;
-    padding: 50px 108px 0px;
+    padding: 25px 108px 0px;
 }
 
 .highlighted {
@@ -186,7 +190,7 @@ header {
     font-weight: 700;
 }
 
-.parent-container{
+.parent-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -227,4 +231,90 @@ header {
     position: absolute;
     bottom: 20px;
     right: 15px;
+}
+
+.vector{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Section 2 Styling */
+.aboutLower {
+    margin-top: 100px;
+    color: #6CC832;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+}
+
+.aboutLower2 {
+    color: #D1D1D1;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 25px 0px;
+}
+
+.aboutLowerp {
+    color: #D1D1D1;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    margin: 0px 212px;
+    margin-bottom: 50px;
+}
+
+/* Card Styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 88px;
+    border-radius: 0.625rem;
+    border: 1px solid #FFF;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(27.600000381469727px);
+    margin: 0px 108px 100px;
+    padding: 1.5625rem 3.125rem;
+}
+
+.card {
+    text-align: center;
+    width: 321px;
+}
+
+.card h5 {
+    padding-top: 3.25rem;
+    padding-bottom: 8px;
+    color: #6CC832;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card p {
+    color: #FFF;
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.card img{
+    height: 240px;
 }
