@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: url("images/doodle1.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+    color: #D1D1D1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 107px;
+}
+
+
+/* Logo Styling */
+.logo {
+    font-family: 'Schoolbell', cursive;
+    font-size: 2.25rem;
+    color: #ffffff;
+}
+
+.full-stop {
+    color: #6CC832;
+}
+
+
+/* Navigation Styling */
+.nav-list {
+    display: flex;
+    gap: 2.81rem;
+    list-style: none;
+}
+
+#about a {
+    color: #6CC832;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 15%;
+    text-underline-offset: 25%;
+    text-underline-position: from-font;
+}
+
+.nav-list li {
+    position: relative;
+}
+
+.nav-list a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.nav-list a:hover {
+    color: #6CC832;
+    font-weight: 800;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    cursor: pointer;
+}
+
+.dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    /* Space between the "Projects" text and the arrow icon */
+}
+
+.dropdown-icon {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background: #1A1A1A;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    display: none;
+    z-index: 10;
+    width: 215px;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #D1D1D1;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background: #6CC832;
+    color: #0E0E0E;
+}
+
+/* Dropdown Toggle Behavior */
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown.open .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Nav Button Styling */
+.contact-btn {
+    background-color: #6CC832;
+    padding: 0.75rem 1.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.3125rem;
+}
+
+.contact-btn a {
+    text-decoration: none;
+    color: #1E1E1E;
+    font-family: "JetBrains Mono";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+
+/* Content Styling */
+.abouth1 {
+    font-size: 2.1875rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 50px 108px 0px;
+}
+
+.highlighted {
+    color: #6CC832;
+}
+
+.italicized {
+    color: #D1D1D1;
+    font-family: Montserrat;
+    font-size: 2.1875rem;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-skip-ink: auto;
+    text-decoration-color: #6CC832;
+    text-decoration-thickness: 10%;
+    text-underline-offset: 25%;
+    text-underline-position: from-font;
+}
+
+.aboutp {
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding: 33px 108px;
+}
+
+.greenP {
+    color: #6CC832;
+    font-weight: 700;
+}
+
+.parent-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myPicture {
+    margin-top: 2.69rem;
+    position: relative;
+    display: inline-block;
+}
+
+.portrait {
+    width: 63.77788rem;
+    height: 23.8125rem;
+    object-fit: cover;
+    object-position: 50% 5%;
+    border-radius: 0.74338rem;
+    border: 1.189px solid #6CC832;
+}
+
+.myPicture a {
+    color: #1E1E1E;
+    text-align: center;
+    font-family: "JetBrains Mono";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.download-cv-btn {
+    background: #6CC832;
+    border: 1.2px solid #1E1E1E;
+    padding: 1.25rem 1.875rem;
+    border-radius: 0.625rem;
+    box-shadow: 10px 8px 4px 0px rgba(108, 200, 50, 0.40);
+    position: absolute;
+    bottom: 20px;
+    right: 15px;
+}
