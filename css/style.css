@@ -67,6 +67,7 @@ header{
 
 /* Dropdown Styles */
 .dropdown {
+    position: relative;
     cursor: pointer;
 }
 
@@ -82,10 +83,19 @@ header{
 }
 
 /* Dropdown Menu */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
 .dropdown-menu {
     position: absolute;
-    top: 120%;
+    top: calc(100% + 0.25rem); 
     left: 0;
+    z-index: 1000;
     background: #1A1A1A;
     list-style: none;
     padding: 10px 0;
@@ -93,7 +103,6 @@ header{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     display: none;
-    z-index: 10;
     width: 215px;
 }
 
