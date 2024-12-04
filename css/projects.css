@@ -68,14 +68,14 @@ header {
 
 /* Dropdown Styles */
 .dropdown {
+    position: relative;
     cursor: pointer;
 }
 
 .dropdown-link {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    /* Space between the "Projects" text and the arrow icon */
+    gap: 0.25rem; /* Space between the "Projects" text and the arrow icon */
 }
 
 .dropdown-icon {
@@ -84,18 +84,29 @@ header {
 }
 
 /* Dropdown Menu */
+.dropdown:hover .dropdown-menu {
+    visibility: visible; 
+    opacity: 1; 
+}
+
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
 .dropdown-menu {
     position: absolute;
-    top: 120%;
+    top: calc(100% + 0.25rem); 
     left: 0;
+    z-index: 1000;
     background: #1A1A1A;
     list-style: none;
     padding: 10px 0;
     margin: 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    display: none;
-    z-index: 10;
+    visibility: hidden;  /* Hide it initially but still take up space */
+    opacity: 0;          /* Fully transparent */
+    transition: visibility 0.2s, opacity 0.2s ease-in-out; /* Smooth appearance */
     width: 215px;
 }
 
@@ -115,6 +126,7 @@ header {
 /* Dropdown Toggle Behavior */
 .dropdown.open .dropdown-menu {
     display: block;
+    opacity: 1;
 }
 
 .dropdown.open .dropdown-icon {

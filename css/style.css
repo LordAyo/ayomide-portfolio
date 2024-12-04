@@ -84,7 +84,8 @@ header{
 
 /* Dropdown Menu */
 .dropdown:hover .dropdown-menu {
-    display: block;
+    visibility: visible; 
+    opacity: 1; 
 }
 
 .dropdown:hover .dropdown-icon {
@@ -102,7 +103,9 @@ header{
     margin: 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    display: none;
+    visibility: hidden;  /* Hide it initially but still take up space */
+    opacity: 0;          /* Fully transparent */
+    transition: visibility 0.2s, opacity 0.2s ease-in-out; /* Smooth appearance */
     width: 215px;
 }
 
@@ -122,6 +125,7 @@ header{
 /* Dropdown Toggle Behavior */
 .dropdown.open .dropdown-menu {
     display: block;
+    opacity: 1;
 }
 
 .dropdown.open .dropdown-icon {
