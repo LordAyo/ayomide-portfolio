@@ -1,11 +1,12 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     min-height: 100vh;
-    background: url("images/doodle1.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
+    background: url("../images/doodle1.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
     color: #D1D1D1;
@@ -38,18 +39,6 @@ header {
     list-style: none;
 }
 
-#dropdown a {
-    color: #6CC832;
-    font-weight: 700;
-    line-height: normal;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: 15%;
-    text-underline-offset: 25%;
-    text-underline-position: from-font;
-}
-
 .nav-list li {
     position: relative;
 }
@@ -75,7 +64,6 @@ header {
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    /* Space between the "Projects" text and the arrow icon */
 }
 
 .dropdown-icon {
@@ -141,14 +129,15 @@ header {
     line-height: normal;
 }
 
-/* Content Styling */
-.highlighted {
+/* Section Styling */
+.highlight {
     color: #6CC832;
 }
 
 h1 {
-    margin: 25px 251px 0px;
+    margin-top: 25px;
     text-align: center;
+    color: #D1D1D1;
     font-family: Montserrat;
     font-size: 2.1875rem;
     font-style: normal;
@@ -156,69 +145,114 @@ h1 {
     line-height: normal;
 }
 
-.smallHigh {
+h3 {
     color: #D1D1D1;
     text-align: center;
-    font-family: Montserrat;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
-h5 {
-    margin: 30px 391px 70px;
-    color: #D1D1D1;
+    text-shadow: 0px 2px 4px rgba(108, 200, 50, 0.35);
     font-family: Montserrat;
     font-size: 1.125rem;
     font-style: italic;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
+    margin: 1.88rem 0px 3.12rem;
 }
 
-.parent {
-    margin: 0px 109px;
+.container {
     display: flex;
-    gap: 3.12rem;
+    gap: 44px;
+    margin: 0px 108px 0px;
 }
 
-.card {
-    text-align: center;
-    border-radius: 1.25rem;
+.contact-card {
+    padding: 1.25rem 2.5rem;
+    border-radius: 0.625rem;
     border: 1px solid #FFF;
     background: rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(27.600000381469727px);
+    backdrop-filter: blur(27.6px);
 }
 
-.card h3 {
-    padding: 30px 0px 20px 0px;
-    color: #D1D1D1;
-    text-align: center;
+.contact-card h4 {
+    color: #6CC832;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Styling */
+label {
+    color: #FFF;
     font-family: Montserrat;
-    font-size: 2.6875rem;
-    font-style: normal;
+    font-size: 1.125rem;
     font-weight: 700;
-    line-height: normal;
 }
 
-.card h4 {
-    padding: 30px 30px 50px;
-    color: #D1D1D1;
-    text-align: center;
+.names {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.sinput {
+    border: none;
+    margin-top: 0.31rem;
+    border-radius: 0.3125rem;
+    padding: 1.25rem;
+    color: #4A5F42;
     font-family: Montserrat;
-    font-size: 1.4375rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
-.click {
-    margin-bottom: 30px;
-}
-
-.bold {
-    font-size: 1.4375rem;
-    font-style: normal;
+    font-size: 0.9375rem;
     font-weight: 700;
+}
+
+#email {
+    margin-top: 0.31rem;
+    border: none;
+    padding: 1.25rem;
+    border-radius: 0.3125rem;
+    width: 100%;
+    margin-bottom: 1.25rem;
+    color: #4A5F42;
+    font-family: Montserrat;
+    font-size: 0.9375rem;
+    font-weight: 700;
+}
+
+.textarea {
+    margin-top: 0.31rem;
+    height: 6.875rem;
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 0.3125rem;
+    color: #4A5F42;
+    font-family: Montserrat;
+    font-size: 0.9375rem;
+    font-weight: 700;
+}
+
+.button {
+    margin-top: 1.25rem;
+    font-family: "JetBrains Mono";
+    font-size: 0.9375rem;
+    font-weight: 800;
     line-height: normal;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    border-radius: 0.3125rem;
+    background: #6CC832;
+    width: 100%;
+    padding: 0.9375rem 1.875rem;
+}
+
+.map {
+    width: 100%;
+    object-fit: cover;
+    height: 516.86px;
+    flex-shrink: 0;
+    border-radius: 0.625rem;
+    border: 5px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 14px 14px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.map-container {
+    flex: 1;
 }

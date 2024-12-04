@@ -4,7 +4,7 @@
 }
 body {
     min-height: 100vh;
-    background: url("images/doodle1.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
+    background: url("../images/doodle1.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
     color: #D1D1D1;
