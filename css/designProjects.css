@@ -1,7 +1,9 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
 body {
     min-height: 100vh;
     background: url("../images/doodle1.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
@@ -10,7 +12,7 @@ body {
     color: #D1D1D1;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,13 +21,13 @@ header{
 
 
 /* Logo Styling */
-.logo{
-    font-family: 'Schoolbell', cursive; 
+.logo {
+    font-family: 'Schoolbell', cursive;
     font-size: 2.25rem;
     color: #ffffff;
 }
 
-.full-stop{
+.full-stop {
     color: #6CC832;
 }
 
@@ -37,7 +39,7 @@ header{
     list-style: none;
 }
 
-#home a{
+#dropdown>a {
     color: #6CC832;
     font-weight: 700;
     line-height: normal;
@@ -60,7 +62,7 @@ header{
     font-size: 1rem;
 }
 
-.nav-list a:hover{
+.nav-list a:hover {
     color: #6CC832;
     font-weight: 800;
 }
@@ -74,7 +76,8 @@ header{
 .dropdown-link {
     display: flex;
     align-items: center;
-    gap: 0.25rem; /* Space between the "Projects" text and the arrow icon */
+    gap: 0.25rem;
+    /* Space between the "Projects" text and the arrow icon */
 }
 
 .dropdown-icon {
@@ -84,8 +87,8 @@ header{
 
 /* Dropdown Menu */
 .dropdown:hover .dropdown-menu {
-    visibility: visible; 
-    opacity: 1; 
+    visibility: visible;
+    opacity: 1;
 }
 
 .dropdown:hover .dropdown-icon {
@@ -94,7 +97,7 @@ header{
 
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 0.25rem); 
+    top: calc(100% + 0.25rem);
     left: 0;
     z-index: 1000;
     background: #1A1A1A;
@@ -103,9 +106,12 @@ header{
     margin: 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    visibility: hidden;  /* Hide it initially but still take up space */
-    opacity: 0;          /* Fully transparent */
-    transition: visibility 0.2s, opacity 0.2s ease-in-out; /* Smooth appearance */
+    visibility: hidden;
+    /* Hide it initially but still take up space */
+    opacity: 0;
+    /* Fully transparent */
+    transition: visibility 0.2s, opacity 0.2s ease-in-out;
+    /* Smooth appearance */
     width: 215px;
 }
 
@@ -133,7 +139,7 @@ header{
 }
 
 /* Nav Button Styling */
-.contact-btn{
+.contact-btn {
     background-color: #6CC832;
     padding: 0.75rem 1.5rem;
     justify-content: center;
@@ -142,7 +148,7 @@ header{
     border-radius: 0.3125rem;
 }
 
-.contact-btn a{
+.contact-btn a {
     text-decoration: none;
     color: #1E1E1E;
     font-family: "JetBrains Mono";
@@ -152,61 +158,49 @@ header{
     line-height: normal;
 }
 
-
-/* Section - Content */
-#content{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.smallText{
-    color: #D1D1D1;
-    font-family: "JetBrains Mono";
-    font-size: 1.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin-top: 30px;
-    padding-left: 172.55px;
-}
-
-.bigText{
+/* Content Styling */
+.highlight {
     color: #6CC832;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 4.0625rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal; 
-    padding: 2.5rem 6.75rem;
 }
 
-.bigText2{
+h1 {
+    margin-top: 25px;
+    text-align: center;
     color: #D1D1D1;
     font-family: Montserrat;
-    font-size: 4.0625rem;
-    font-style: normal;
-    text-align: center;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.getInTouch{
-    border-radius: 0.375rem;
-    border: 1px solid #000;
-    background: #6CC832;
-    box-shadow: 11px 8px 4px 0px rgba(108, 200, 50, 0.35);
-    padding: 0.75rem 1.5rem;
-}
-
-.getInTouch a{
-    text-decoration: none;
-    color: #1E1E1E;
-    font-family: "JetBrains Mono";
-    font-size: 1.5625rem;
+    font-size: 2.1875rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 
+h2 {
+    margin-top: 1.88rem;
+    color: #D1D1D1;
+    text-align: center;
+    text-shadow: 0px 2px 4px rgba(108, 200, 50, 0.35);
+    font-family: Montserrat;
+    font-size: 1.125rem;
+    font-style: italic;
+    font-weight: 600;
+    line-height: normal;
+}
+
+h3 {
+    color: #6CC832;
+    font-family: Montserrat;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.card {
+    margin: 50px 109px 0px;
+    width: 76.4375rem;
+    padding: 3.75rem 1.875rem;
+    border-radius: 2.5rem;
+    border: 2px solid #FFF;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(27.600000381469727px);
+}
