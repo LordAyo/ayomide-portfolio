@@ -187,6 +187,7 @@ h2 {
 }
 
 h3 {
+    margin-top: 1.38rem;
     color: #6CC832;
     font-family: Montserrat;
     font-size: 1.875rem;
@@ -198,9 +199,41 @@ h3 {
 .card {
     margin: 50px 109px 0px;
     width: 76.4375rem;
-    padding: 3.75rem 1.875rem;
+    padding: 3rem 1.875rem;
     border-radius: 2.5rem;
     border: 2px solid #FFF;
     background: rgba(255, 255, 255, 0.22);
     backdrop-filter: blur(27.600000381469727px);
+}
+
+.tag-container {
+    display: flex;
+    gap: 10px;
+    margin: 1.38rem 0;
+}
+
+.tag {
+    display: flex;
+    gap: 10px;
+    padding: 0.9375rem 1.875rem;
+    border-radius: 3.125rem;
+    border: 2px solid #6CC832;
+    background: #4A5F42;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(27.5px);
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+h4 {
+    color: #D1D1D1;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
