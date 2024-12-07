@@ -12,6 +12,10 @@ body {
     color: #D1D1D1;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -204,6 +208,7 @@ h3 {
     border: 2px solid #FFF;
     background: rgba(255, 255, 255, 0.22);
     backdrop-filter: blur(27.600000381469727px);
+
 }
 
 .tag-container {
