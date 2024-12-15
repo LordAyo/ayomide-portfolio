@@ -20,6 +20,7 @@ header{
 
 /* Logo Styling */
 .logo{
+    text-decoration: none;
     font-family: 'Schoolbell', cursive; 
     font-size: 2.25rem;
     color: #ffffff;
@@ -27,6 +28,12 @@ header{
 
 .full-stop{
     color: #6CC832;
+}
+
+/* Hamburger Menu Styling */ 
+.hamburger {
+    display: none;
+    cursor: pointer;
 }
 
 

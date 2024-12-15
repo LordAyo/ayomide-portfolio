@@ -12,17 +12,23 @@
 </head>
 <body>
     <header>
-        <div class="logo">ayomide<span class="full-stop">.</span></div>
+        <a href="index.html" class="logo">ayomide<span class="full-stop">.</span></a>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
         <nav>
             <ul class="nav-list">
                 <li id="home"><a href="index.html">Home</a></li>
                 <li id="about"><a href="pages/about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="pages/projects.html">Projects <span class="dropdown-icon">▼</span></a>
+                    <a href="pages/projects.html">Projects <i class="fas fa-chevron-down dropdown-icon"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../pages/designProjects.html">Design Projects ✏️</a></li>
-                        <li><a href="../pages/developerProjects.html">Developer Projects 🛠️</a></li>
+                        <li><a href="../pages/designProjects.html">Design Projects <i class="fas fa-pencil-alt"></i></a></li>
+                        <li><a href="../pages/developerProjects.html">Developer Projects <i class="fas fa-tools"></i></a></li>
                     </ul>
                 </li>
             </ul>

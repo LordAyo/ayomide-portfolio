@@ -25,8 +25,9 @@ header {
 
 
 /* Logo Styling */
-.logo {
-    font-family: 'Schoolbell', cursive;
+.logo{
+    text-decoration: none;
+    font-family: 'Schoolbell', cursive; 
     font-size: 2.25rem;
     color: #ffffff;
 }
