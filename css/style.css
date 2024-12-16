@@ -170,6 +170,7 @@ header {
 
 /* Hamburger Button Animation */
 .toggle_btn {
+    display: none;
     font-size: 2rem;
     position: relative;
     z-index: 1000;
