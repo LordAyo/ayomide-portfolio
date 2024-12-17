@@ -555,4 +555,8 @@ header {
     .mobile-dropdown.open {
         display: block;
     }
+
+    .mobile-dropdown .contact-btn a {
+        color: #fff;
+    }
 }
