@@ -141,31 +141,35 @@ header {
     transform: rotate(180deg);
 }
 
-/* Contact Button Styling */
+/* Contact Button Styles */
 .contact-btn {
-    background-color: #6CC832;
-    border-radius: 0.3125rem;
+    position: relative;
     display: inline-block;
-    overflow: hidden;
 }
 
 .contact-btn a {
-    display: block;
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 0.3125rem;
     padding: 0.75rem 1.5rem;
+    color: #fff;
     text-decoration: none;
-    color: #1E1E1E;
+    transition: all 0.3s ease;
+    color: #fff;
     font-family: "JetBrains Mono";
     font-size: 1rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    border-radius: 0.3125rem;
-    text-align: center;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-weight: 600;
+    vertical-align: middle;
 }
 
-.contact-btn:hover {
-    transform: scale(1.05);
+.contact-btn:hover a {
+    transform: scale(1.1);
+    background-color: #6CC832;
+    color: #1E1E1E;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 /* Hamburger Button Animation */
@@ -328,6 +332,7 @@ header {
         transform: translateY(-100px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -338,6 +343,7 @@ header {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -348,6 +354,7 @@ header {
         transform: scale(0.8);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;
@@ -426,6 +433,7 @@ header {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -436,6 +444,7 @@ header {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -445,9 +454,11 @@ header {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
+
     100% {
         transform: scale(1);
     }
@@ -475,7 +486,8 @@ header {
     font-weight: 600;
     line-height: normal;
     padding: 2.5rem 6.75rem;
-    animation: fadeInUp 1.2s ease-out 0.5s; /* Delay added for a staggered effect */
+    animation: fadeInUp 1.2s ease-out 0.5s;
+    /* Delay added for a staggered effect */
     animation-fill-mode: both;
 }
 
@@ -487,7 +499,8 @@ header {
     text-align: center;
     font-weight: 400;
     line-height: normal;
-    animation: fadeInUp 1.4s ease-out 0.7s; /* Staggered delay */
+    animation: fadeInUp 1.4s ease-out 0.7s;
+    /* Staggered delay */
     animation-fill-mode: both;
 }
 
@@ -497,7 +510,8 @@ header {
     background: #6CC832;
     box-shadow: 11px 8px 4px 0px rgba(108, 200, 50, 0.35);
     padding: 0.75rem 1.5rem;
-    animation: pulse 1s infinite 2s; /* Starts pulsing after 2 seconds */
+    animation: pulse 1s infinite 2s;
+    /* Starts pulsing after 2 seconds */
 }
 
 .getInTouch a {
