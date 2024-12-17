@@ -256,6 +256,38 @@ header {
     animation-delay: 0.4s;
 }
 
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 /* Content Styling */
 .abouth1 {
@@ -263,6 +295,7 @@ header {
     font-weight: 700;
     text-align: center;
     padding: 25px 108px 0px;
+    animation: fadeInUp 1s ease-out;
 }
 
 .highlighted {
@@ -294,6 +327,8 @@ header {
     font-weight: 300;
     line-height: normal;
     padding: 33px 108px;
+    animation: fadeInUp 1.2s ease-out;
+
 }
 
 .greenP {
@@ -320,6 +355,7 @@ header {
     object-position: 50% 5%;
     border-radius: 0.74338rem;
     border: 1.189px solid #6CC832;
+    animation: scaleIn 1.2s ease-out;
 }
 
 .myPicture a {
@@ -342,6 +378,8 @@ header {
     position: absolute;
     bottom: 20px;
     right: 15px;
+    animation: fadeIn 1.5s ease-out 0.5s;
+    animation-fill-mode: both;
 }
 
 .vector{
@@ -361,6 +399,8 @@ header {
     font-weight: 700;
     line-height: normal;
     text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.2s;
 }
 
 .aboutLower2 {
@@ -372,6 +412,8 @@ header {
     font-weight: 700;
     line-height: normal;
     margin: 25px 0px;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.4s;
 }
 
 .aboutLowerp {
@@ -384,6 +426,8 @@ header {
     line-height: normal;
     margin: 0px 212px;
     margin-bottom: 50px;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.6s;
 }
 
 /* Card Styling */
@@ -403,6 +447,9 @@ header {
 .card {
     text-align: center;
     width: 321px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .card h5 {
@@ -428,4 +475,16 @@ header {
 
 .card img{
     height: 240px;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.6s;
 }
