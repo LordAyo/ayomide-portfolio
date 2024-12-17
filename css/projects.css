@@ -99,7 +99,7 @@ header {
     position: absolute;
     top: calc(100% + 0.25rem);
     left: 0;
-    z-index: 1000;
+    z-index: 9999;
     background: #1A1A1A;
     list-style: none;
     padding: 10px 0;
@@ -107,11 +107,8 @@ header {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     visibility: hidden;
-    /* Hide it initially but still take up space */
     opacity: 0;
-    /* Fully transparent */
     transition: visibility 0.2s, opacity 0.2s ease-in-out;
-    /* Smooth appearance */
     width: 215px;
 }
 
@@ -138,24 +135,34 @@ header {
     transform: rotate(180deg);
 }
 
-/* Nav Button Styling */
+/* Contact Button Styles */
 .contact-btn {
-    background-color: #6CC832;
-    padding: 0.75rem 1.5rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
-    border-radius: 0.3125rem;
+    position: relative;
+    display: inline-block;
 }
 
 .contact-btn a {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 0.3125rem;
+    padding: 0.75rem 1.5rem;
+    color: #fff;
     text-decoration: none;
-    color: #1E1E1E;
+    transition: all 0.3s ease;
+    color: #fff;
     font-family: "JetBrains Mono";
     font-size: 1rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.contact-btn:hover a {
+    background-color: #6CC832;
+    border: 2px solid #6CC832;
+    color: #1E1E1E;
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 /* Keyframes */
@@ -198,6 +205,7 @@ header {
     position: relative;
     padding: 25px 107px;
     animation: slideInDown 0.8s ease-out;
+    z-index: 10;
 }
 
 /* Logo Animation */

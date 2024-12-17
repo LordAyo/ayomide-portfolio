@@ -164,11 +164,10 @@ header {
 }
 
 .contact-btn:hover a {
-    transform: scale(1.1);
     background-color: #6CC832;
+    border: 2px solid #6CC832;
     color: #1E1E1E;
     font-weight: 700;
-    border: none;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
