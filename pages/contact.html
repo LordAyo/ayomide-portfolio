@@ -18,24 +18,38 @@
 
 <body>
     <header>
-        <a href="../index.html" class="logo">ayomide<span class="full-stop">.</span></a>
-
-        <nav>
+        <div class="navbar">
+            <a href="../index.html" class="logo">ayomide<span class="full-stop">.</span></a>
+    
             <ul class="nav-list">
-                <li id="home"><a href="../index.html">Home</a></li>
-                <li id="about"><a href="../pages/about.html">About</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="../pages/projects.html">Projects <span class="dropdown-icon">▼</span></a>
+                    <a href="../pages/projects.html">Projects <i class="fas fa-chevron-down dropdown-icon"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="../pages/designProjects.html">Design Projects ✏️</a></li>
                         <li><a href="../pages/developerProjects.html">Developer Projects 🛠️</a></li>
                     </ul>
                 </li>
             </ul>
-        </nav>
-
-        <div class="contact-btn"><a href="../pages/contact.html">Contact</a></div>
+    
+            <div class="contact-btn"><a href="../pages/contact.html">Contact</a></div>
+    
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+    
+            <nav class="mobile-dropdown">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/projects.html">Projects</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+    
 
     <section>
         <h1><span class="highlight">Contact</span> Me 📞</h1>
@@ -77,6 +91,8 @@
             </div>
         </div>
     </section>
+
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

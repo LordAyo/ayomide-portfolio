@@ -12,6 +12,10 @@ body {
     color: #D1D1D1;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 header {
     position: relative;
     padding: 25px 107px;
@@ -522,14 +526,6 @@ header {
     font-weight: 700;
     line-height: normal;
 }
-
-
-
-
-
-
-
-
 
 @media screen and (max-width: 768px) {
     header {

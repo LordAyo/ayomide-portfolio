@@ -13,10 +13,16 @@ body {
 }
 
 header {
+    position: relative;
+    padding: 25px 107px;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 107px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 
@@ -26,6 +32,7 @@ header {
     font-family: 'Schoolbell', cursive; 
     font-size: 2.25rem;
     color: #ffffff;
+    z-index: 1000;
 }
 
 .full-stop {
@@ -151,6 +158,102 @@ header {
     color: #1E1E1E;
     font-weight: 700;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Hamburger Button Animation */
+.toggle_btn {
+    display: none;
+    font-size: 2rem;
+    position: relative;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.fa-xmark {
+    font-size: 2rem;
+}
+
+/* Modify existing contact button for mobile */
+.mobile-dropdown .contact-btn {
+    margin-top: 2rem;
+    transform: scale(1.2);
+}
+
+/* Mobile Dropdown Styling */
+.mobile-dropdown {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 17, 17, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-dropdown.open {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-dropdown ul {
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-dropdown li {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.mobile-dropdown.open li {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mobile-dropdown.open li:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.mobile-dropdown.open li:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.mobile-dropdown.open li:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.mobile-dropdown.open li:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+
+.mobile-dropdown a {
+    color: #D1D1D1;
+    font-size: 1.75rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mobile-dropdown a:hover {
+    color: #6CC832;
 }
 
 /* Keyframes */
@@ -377,4 +480,34 @@ label {
 
 .map-container {
     flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 25px 20px;
+    }
+
+    .nav-list,
+    .navbar>.contact-btn {
+        display: none;
+    }
+
+    .mobile-dropdown .contact-btn a {
+        color: #1E1E1E;
+        font-size: 1.25rem;
+        padding: 0.5rem 1rem;
+
+    }
+
+    .toggle_btn {
+        display: block;
+    }
+
+    .mobile-dropdown.open {
+        display: block;
+    }
+
+    .mobile-dropdown .contact-btn a {
+        color: #fff;
+    }
 }
