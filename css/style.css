@@ -527,6 +527,10 @@ header {
     line-height: normal;
 }
 
+.profileImg{
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     header {
         padding: 25px 20px;
@@ -555,4 +559,60 @@ header {
     .mobile-dropdown .contact-btn a {
         color: #fff;
     }
+
+    .smallText {
+        color: #D1D1D1;
+        font-family: "JetBrains Mono";
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        padding-left: 0;
+        text-align: center;
+        margin-top: 90px;
+    }
+
+    .profilePic{
+        display: none;
+    }
+
+    .profileImg{
+        height: 120px;
+        border-radius: 22.5rem;
+        background: #437e1f;
+        display: block;
+        margin: 20px 0px 20px 38%;
+    }
+
+    .bigText {
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 1.75rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        padding: 0;
+        margin: 0px 20px 40px;
+    }
+
+    .bigText2 {
+        color: #D1D1D1;
+        font-family: Montserrat;
+        font-size: 1.75rem;
+        font-style: normal;
+        text-align: center;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .getInTouch {
+        padding: 0.75rem 1.5rem;
+    }
+
+    .getInTouch a {
+        font-size: 0.875rem;
+        font-weight: 800;
+    }
+
+
 }
