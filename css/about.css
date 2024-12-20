@@ -10,6 +10,8 @@ body {
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
     color: #D1D1D1;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -31,9 +33,9 @@ header {
 
 
 /* Logo Styling */
-.logo{
+.logo {
     text-decoration: none;
-    font-family: 'Schoolbell', cursive; 
+    font-family: 'Schoolbell', cursive;
     font-size: 2.25rem;
     color: #ffffff;
     z-index: 1000;
@@ -98,8 +100,8 @@ header {
 
 /* Dropdown Menu */
 .dropdown:hover .dropdown-menu {
-    visibility: visible; 
-    opacity: 1; 
+    visibility: visible;
+    opacity: 1;
 }
 
 .dropdown:hover .dropdown-icon {
@@ -108,7 +110,7 @@ header {
 
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 0.25rem); 
+    top: calc(100% + 0.25rem);
     left: 0;
     z-index: 1000;
     background: #1A1A1A;
@@ -117,9 +119,12 @@ header {
     margin: 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    visibility: hidden;  /* Hide it initially but still take up space */
-    opacity: 0;          /* Fully transparent */
-    transition: visibility 0.2s, opacity 0.2s ease-in-out; /* Smooth appearance */
+    visibility: hidden;
+    /* Hide it initially but still take up space */
+    opacity: 0;
+    /* Fully transparent */
+    transition: visibility 0.2s, opacity 0.2s ease-in-out;
+    /* Smooth appearance */
     width: 215px;
 }
 
@@ -287,6 +292,7 @@ header {
         transform: translateY(-100px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -297,6 +303,7 @@ header {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -307,6 +314,7 @@ header {
         transform: scale(0.8);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;
@@ -385,6 +393,7 @@ header {
         opacity: 0;
         transform: translateY(50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -396,6 +405,7 @@ header {
         transform: scale(0.8);
         opacity: 0;
     }
+
     to {
         transform: scale(1);
         opacity: 1;
@@ -406,6 +416,7 @@ header {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -505,7 +516,7 @@ header {
     animation-fill-mode: both;
 }
 
-.vector{
+.vector {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
@@ -596,7 +607,7 @@ header {
     line-height: normal;
 }
 
-.card img{
+.card img {
     height: 240px;
 }
 
@@ -623,6 +634,10 @@ header {
 
 .toggle_btn i {
     transition: transform 0.3s ease;
+}
+
+.stroke{
+    display: none;
 }
 
 
@@ -654,5 +669,67 @@ header {
 
     .mobile-dropdown .contact-btn a {
         color: #fff;
+    }
+
+    .abouth1 {
+        padding: 0px 20px;
+        font-size: 1.5rem;
+    }
+
+    .highlighted {
+        font-size: 1.5rem;
+    }
+
+    .italicized {
+        font-size: 1.5rem;
+    }
+
+    .aboutp {
+        padding: 20px;
+        font-size: 0.8rem;
+    }
+
+    .portrait {
+        width: 23.75rem;
+        height: 20rem;
+    }
+
+    .stroke {
+        width: 27.50575rem;
+        flex-shrink: 0;
+    }
+
+    .myPicture a {
+        font-size: 0.7rem;
+    }
+
+    .download-cv-btn {
+        border-radius: 5px;
+        bottom: 15px;
+        right: 10px;
+        padding: 0.6rem;
+    }
+
+    .aboutLower {
+        margin-top: 50px;
+        font-size: 0.9375rem;
+    }
+
+    .aboutLower2{
+        font-size: 1.25rem;
+        padding: 0px 20px;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 50px;
+        margin: 0px 20px 100px;
+        padding: 1.5625rem 1.25rem;
+    }
+
+    .aboutLowerp{
+        font-size: 0.9375rem;
+        margin: 0px 20px 50px;
+
     }
 }

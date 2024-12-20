@@ -9,6 +9,8 @@ body {
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
     color: #D1D1D1;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 header {
@@ -428,7 +430,7 @@ h5 {
     will-change: transform;
     animation: flipIn 1s ease-out forwards;
     transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
     text-decoration: none;
 }
@@ -492,6 +494,7 @@ h5 {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -503,6 +506,7 @@ h5 {
         opacity: 0;
         transform: rotateY(90deg);
     }
+
     to {
         opacity: 1;
         transform: rotateY(0deg) scale(1);
