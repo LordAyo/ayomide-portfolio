@@ -582,23 +582,36 @@ header {
 /* Card Styling */
 .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 88px;
+    align-items: stretch;
+    gap: 2rem;
     border-radius: 0.625rem;
     border: 1px solid #FFF;
     background: rgba(255, 255, 255, 0.22);
     backdrop-filter: blur(27.600000381469727px);
-    margin: 0px 108px 100px;
-    padding: 1.5625rem 3.125rem;
+    margin: 0 6.75rem 2rem;
+    padding: 1.5rem 2rem; 
 }
 
 .card {
     text-align: center;
+    flex: 1 1 calc(100% / 3 - 2rem);
     width: 321px;
     opacity: 0;
     transform: translateY(50px);
     animation: fadeInUp 1s ease-out forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card .img-wrapper {
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
 }
 
 .card h5 {
@@ -607,23 +620,24 @@ header {
     color: #6CC832;
     text-align: center;
     font-family: Montserrat;
-    font-size: 1.25rem;
-    font-style: normal;
+    font-size: 1.5rem;
     font-weight: 700;
-    line-height: normal;
+    line-height: 1.2;
 }
 
 .card p {
     color: #FFF;
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.5;
 }
 
 .card img {
     height: 240px;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .card:nth-child(1) {
@@ -735,16 +749,35 @@ header {
         padding: 0px 20px;
     }
 
-    .container {
-        flex-direction: column;
-        gap: 50px;
-        margin: 0px 20px 100px;
-        padding: 1.5625rem 1.25rem;
-    }
-
     .aboutLowerp{
         font-size: 0.9375rem;
         margin: 0px 20px 50px;
 
     }
+
+    .container {
+        margin: 0 1rem 1.5rem;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    
+    .card .img-wrapper {
+        min-height: 180px;
+    }
+    
+    .card img {
+        max-height: 180px;
+    }
+    
+    .card h5 {
+        font-size: 1.25rem;
+        padding-top: 1.5rem;
+    }
+
+
 }
