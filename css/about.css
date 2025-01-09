@@ -636,7 +636,7 @@ header {
     transition: transform 0.3s ease;
 }
 
-.stroke{
+.strokeMobile{
     display: none;
 }
 
