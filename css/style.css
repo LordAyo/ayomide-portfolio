@@ -10,6 +10,8 @@ body {
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
     color: #D1D1D1;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
