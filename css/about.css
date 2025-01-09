@@ -39,6 +39,8 @@ header {
     font-size: 2.25rem;
     color: #ffffff;
     z-index: 1000;
+    animation: fadeIn 1s ease-out 0.2s;
+    animation-fill-mode: both;
 }
 
 .full-stop {
@@ -340,17 +342,6 @@ header {
     position: relative;
     padding: 25px 107px;
     animation: slideInDown 0.8s ease-out;
-}
-
-/* Logo Animation */
-.logo {
-    text-decoration: none;
-    font-family: 'Schoolbell', cursive;
-    font-size: 2.25rem;
-    color: #ffffff;
-    z-index: 1000;
-    animation: fadeIn 1s ease-out 0.2s;
-    animation-fill-mode: both;
 }
 
 /* Navigation Animation */
