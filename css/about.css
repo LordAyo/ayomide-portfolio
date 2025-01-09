@@ -256,15 +256,6 @@ header {
 }
 
 .mobile-dropdown.open li:nth-child(2) {
-    color: #6CC832;
-    font-weight: 700;
-    line-height: normal;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: 15%;
-    text-underline-offset: 25%;
-    text-underline-position: from-font;
     transition-delay: 0.2s;
 }
 

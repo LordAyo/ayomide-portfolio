@@ -50,6 +50,18 @@ header {
     list-style: none;
 }
 
+#projects a {
+    color: #6CC832;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 15%;
+    text-underline-offset: 25%;
+    text-underline-position: from-font;
+}
+
 #dropdown>a {
     color: #6CC832;
     font-weight: 700;
