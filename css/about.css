@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
     background: url("../images/doodle2.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
@@ -572,7 +576,7 @@ header {
     background: rgba(255, 255, 255, 0.22);
     backdrop-filter: blur(27.600000381469727px);
     margin: 0 6.75rem 2rem;
-    padding: 1.5rem 2rem; 
+    padding: 1.5rem 2rem;
 }
 
 .card {
@@ -646,7 +650,7 @@ header {
     transition: transform 0.3s ease;
 }
 
-.strokeMobile{
+.strokeMobile {
     display: none;
 }
 
@@ -725,12 +729,12 @@ header {
         font-size: 0.9375rem;
     }
 
-    .aboutLower2{
+    .aboutLower2 {
         font-size: 1.25rem;
         padding: 0px 20px;
     }
 
-    .aboutLowerp{
+    .aboutLowerp {
         font-size: 0.9375rem;
         margin: 0px 20px 50px;
 
@@ -741,20 +745,20 @@ header {
         padding: 1.5rem;
         gap: 1.5rem;
     }
-    
+
     .card {
         flex: 1 1 100%;
         max-width: 100%;
     }
-    
+
     .card .img-wrapper {
         min-height: 180px;
     }
-    
+
     .card img {
         max-height: 180px;
     }
-    
+
     .card h5 {
         font-size: 1.25rem;
         padding-top: 1.5rem;

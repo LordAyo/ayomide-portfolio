@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
     background: url("../images/doodle1.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);
