@@ -20,7 +20,7 @@
     <header>
         <div class="navbar">
             <a href="../index.html" class="logo">ayomide<span class="full-stop">.</span></a>
-    
+
             <ul class="nav-list">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../pages/about.html">About</a></li>
@@ -32,24 +32,26 @@
                     </ul>
                 </li>
             </ul>
-    
+
             <div class="contact-btn"><a href="../pages/contact.html">Contact</a></div>
-    
+
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
-    
+
             <nav class="mobile-dropdown">
                 <ul>
                     <li id="home"><a href="../index.html">Home</a></li>
                     <li id="about"><a href="../pages/about.html">About</a></li>
                     <li><a href="../pages/projects.html">Projects</a></li>
-                    <li><div class="contact-btn"><a href="../pages/contact.html">Contact</a></div></li>
+                    <li>
+                        <div class="contact-btn"><a href="../pages/contact.html">Contact</a></div>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
-    
+
 
     <section>
         <h1><span class="highlight">Contact Me:</span> Let's Build Something Amazing Together</h1>
@@ -58,15 +60,31 @@
         <div class="container">
             <div class="contact-card">
                 <h4>Get in touch</h4>
-                <form id="contactForm">
+                <form id="contactForm" action="https://formsubmit.co/ay4ayomide@gmail.com" method="POST">
+                    <!-- Honeypot -->
+                    <input type="text" name="_honey" style="display:none">
+
+                    <!-- Disable Captcha -->
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <!-- Add success message popup -->
+                    <div id="successPopup" class="popup">
+                        <div class="popup-content">
+                            <h3>Thank you for your message!</h3>
+                            <p>I'll get back to you soon.</p>
+                            <button onclick="closePopup()" class="popup-close">Close</button>
+                        </div>
+                    </div>
                     <div class="names">
                         <div class="input-box">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" class="sinput" placeholder="First Name" required>
+                            <input type="text" id="firstName" name="firstName" class="sinput" placeholder="First Name"
+                                required>
                         </div>
                         <div class="input-box">
                             <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" class="sinput" placeholder="Last Name" required>
+                            <input type="text" id="lastName" name="lastName" class="sinput" placeholder="Last Name"
+                                required>
                         </div>
                     </div>
                     <div class="input-box">
@@ -75,7 +93,8 @@
                     </div>
                     <div class="input-field">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" class="textarea" placeholder="I'd love to hear your thoughts!" required></textarea>
+                        <textarea id="message" name="message" class="textarea"
+                            placeholder="I'd love to hear your thoughts!" required></textarea>
                     </div>
                     <button class="button" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
                 </form>
@@ -86,9 +105,10 @@
                 <div class="social-links">
                     <a href="mailto:ay4ayomide@gmail.com" class="social-link">
                         <i class="fas fa-envelope"></i>
-                        <span>Email</span> 
+                        <span>Email</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/ayomide-abioye" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/ayomide-abioye" class="social-link" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
                     </a>
