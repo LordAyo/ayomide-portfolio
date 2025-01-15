@@ -52,42 +52,51 @@
     
 
     <section>
-        <h1><span class="highlight">Contact</span> Me 📞</h1>
+        <h1><span class="highlight">Contact Me:</span> Let's Build Something Amazing Together</h1>
         <h3>I’m always excited to discuss new projects or opportunities. Feel free to drop me a message!</h3>
 
         <div class="container">
             <div class="contact-card">
                 <h4>Get in touch</h4>
-
-                <form>
+                <form id="contactForm">
                     <div class="names">
                         <div class="input-box">
-                            <label for="FirstName">First Name</label> <br>
-                            <input type="text" id="fname" class="sinput" placeholder="First Name"> <br>
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" class="sinput" placeholder="First Name" required>
                         </div>
-    
                         <div class="input-box">
-                            <label for="LastName">Last Name</label> <br>
-                            <input type="text" id="Lname" class="sinput" placeholder="Last Name"> <br>
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" class="sinput" placeholder="Last Name" required>
                         </div>
                     </div>
-
                     <div class="input-box">
-                        <label for="email">Email</label> <br>
-                        <input type="email" name="email" id="email" placeholder="you@example.com"> <br>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
                     </div>
-
                     <div class="input-field">
-                        <label for="message">Message</label> <br>
-                        <textarea name="message" class="textarea" placeholder="I'd love to hear your thoughts!"></textarea> <br>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="textarea" placeholder="I'd love to hear your thoughts!" required></textarea>
                     </div>
-
-                    <button class="button" type="submit">Send Message</button>
+                    <button class="button" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
 
-            <div class="map-container">
-                <img class="map" src="../images/map.png" alt="">
+            <div class="social-card">
+                <h2>Connect with me</h2>
+                <div class="social-links">
+                    <a href="mailto:ay4ayomide@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span> 
+                    </a>
+                    <a href="https://www.linkedin.com/in/ayomide-abioye" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/LordAyo" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

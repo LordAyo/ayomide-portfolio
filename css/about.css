@@ -501,15 +501,15 @@ header {
 .download-cv-btn {
     background: #6CC832;
     border: 1.2px solid #1E1E1E;
-    padding: 1.25rem 1.875rem;
+    padding: 1rem 1rem;
     border-radius: 0.625rem;
     box-shadow: 10px 8px 4px 0px rgba(108, 200, 50, 0.40);
     position: absolute;
     bottom: 20px;
     right: 15px;
-    animation: fadeIn 1.5s ease-out 0.5s;
-    animation-fill-mode: both;
+    animation: fadeInUp 1s ease-out forwards;
 }
+
 
 .vector {
     margin-top: 1rem;
