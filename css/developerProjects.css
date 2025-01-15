@@ -430,7 +430,6 @@ h3 {
 
 .card {
     margin: 50px 109px 0px;
-    width: 76.4375rem;
     padding: 3rem 1.875rem;
     border-radius: 2.5rem;
     border: 2px solid #FFF;
@@ -438,6 +437,13 @@ h3 {
     backdrop-filter: blur(27.600000381469727px);
     animation: fadeIn 1s ease-out;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .card:hover {
