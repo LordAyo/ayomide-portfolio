@@ -182,3 +182,60 @@ function handleCardClick(event, card, expandedContent) {
         expandedContent.style.display = 'block';
     }
 }
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    const buttonText = document.getElementById('buttonText');
+    const loadingText = document.getElementById('loadingText');
+    const submitButton = document.getElementById('submitButton');
+    
+    buttonText.style.display = 'none';
+    loadingText.style.display = 'inline';
+    submitButton.disabled = true;
+
+    // Get form data
+    const templateParams = {
+        from_name: document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value,
+        from_email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+    
+    // Send email using EmailJS
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            // Show success popup
+            document.getElementById('successPopup').style.display = 'block';
+            // Reset form
+            document.getElementById('contactForm').reset();
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert('Sorry, there was an error sending your message. Please try again.');
+        })
+        .finally(() => {
+            // Reset button state
+            buttonText.style.display = 'inline';
+            loadingText.style.display = 'none';
+            submitButton.disabled = false;
+        });
+});
+
+function closePopup() {
+    document.getElementById('successPopup').style.display = 'none';
+}
+
+// Close popup when clicking outside
+document.getElementById('successPopup').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closePopup();
+    }
+});
+
+// Close popup when pressing Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('successPopup').style.display === 'block') {
+        closePopup();
+    }
+});
