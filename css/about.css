@@ -435,18 +435,14 @@ header {
 }
 
 .italicized {
-    color: #D1D1D1;
+    color: transparent;
+    -webkit-text-stroke: 1px #6CC832;
     font-family: Montserrat;
     font-size: 2.1875rem;
     font-style: italic;
-    font-weight: 700;
+    font-weight: 800;
     line-height: normal;
-    text-decoration-line: underline;
-    text-decoration-style: dotted;
-    text-decoration-skip-ink: auto;
-    text-decoration-color: #6CC832;
-    text-decoration-thickness: 10%;
-    text-underline-offset: 25%;
+
     text-underline-position: from-font;
 }
 
