@@ -510,4 +510,8 @@ label {
         color: #6CC832;
         border-color: #6CC832;
     }
+
+    .contact-btn {
+        animation: none;
+    }
 }

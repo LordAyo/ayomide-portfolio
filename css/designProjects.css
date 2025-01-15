@@ -627,4 +627,8 @@ h4 {
     .mobile-dropdown .contact-btn a {
         color: #fff;
     }
+
+    .contact-btn {
+        animation: none;
+    }
 }

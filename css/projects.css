@@ -583,4 +583,8 @@ h5 {
     .click{
         width: 60px;
     }
+
+    .contact-btn {
+        animation: none;
+    }
 }

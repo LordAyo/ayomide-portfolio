@@ -474,6 +474,7 @@ header {
     align-items: center;
 }
 
+
 .myPicture {
     margin-top: 2.69rem;
     position: relative;
@@ -701,15 +702,10 @@ header {
         padding: 20px;
         font-size: 0.8rem;
     }
-
+    
     .portrait {
         width: 23.75rem;
         height: 20rem;
-    }
-
-    .stroke {
-        width: 27.50575rem;
-        flex-shrink: 0;
     }
 
     .myPicture a {

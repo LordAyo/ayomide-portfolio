@@ -567,6 +567,10 @@ header {
         color: #fff;
     }
 
+    .contact-btn {
+        animation: none;
+    }
+
     .smallText {
         color: #D1D1D1;
         font-family: "JetBrains Mono";
