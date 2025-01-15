@@ -60,31 +60,24 @@
         <div class="container">
             <div class="contact-card">
                 <h4>Get in touch</h4>
-                <form id="contactForm" action="https://formsubmit.co/ay4ayomide@gmail.com" method="POST">
+                <form action="https://formsubmit.co/ay4ayomide@gmail.com" method="POST">
                     <!-- Honeypot -->
                     <input type="text" name="_honey" style="display:none">
 
                     <!-- Disable Captcha -->
                     <input type="hidden" name="_captcha" value="false">
-
-                    <!-- Add success message popup -->
-                    <div id="successPopup" class="popup">
-                        <div class="popup-content">
-                            <h3>Thank you for your message!</h3>
-                            <p>I'll get back to you soon.</p>
-                            <button onclick="closePopup()" class="popup-close">Close</button>
-                        </div>
-                    </div>
+                    
+                    <!-- Specify return URL -->
+                    <input type="hidden" name="_next" value="https://lordayo.github.io/portfolio/pages/contact.html">
+                    
                     <div class="names">
                         <div class="input-box">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" class="sinput" placeholder="First Name"
-                                required>
+                            <input type="text" id="firstName" name="name" class="sinput" placeholder="First Name" required>
                         </div>
                         <div class="input-box">
                             <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" class="sinput" placeholder="Last Name"
-                                required>
+                            <input type="text" id="lastName" name="lastName" class="sinput" placeholder="Last Name" required>
                         </div>
                     </div>
                     <div class="input-box">
@@ -93,15 +86,9 @@
                     </div>
                     <div class="input-field">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" class="textarea"
-                            placeholder="I'd love to hear your thoughts!" required></textarea>
+                        <textarea id="message" name="message" class="textarea" placeholder="I'd love to hear your thoughts!" required></textarea>
                     </div>
-                    <button id="submitButton" class="button" type="submit">
-                        <span id="buttonText">Send Message <i class="fas fa-paper-plane"></i></span>
-                        <span id="loadingText" style="display: none;">
-                            Sending... <i class="fas fa-spinner fa-spin"></i>
-                        </span>
-                    </button>
+                    <button class="button" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
 
