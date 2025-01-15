@@ -60,21 +60,10 @@
         <div class="container">
             <div class="contact-card">
                 <h4>Get in touch</h4>
-                <!-- Add success message popup -->
-                <div id="successPopup" class="popup">
-                    <div class="popup-content">
-                        <h3>Thank you for your message!</h3>
-                        <p>I'll get back to you soon.</p>
-                        <button onclick="closePopup()" class="popup-close">Close</button>
-                    </div>
-                </div>
-
-                <form id="contactForm" action="https://formsubmit.co/ay4ayomide@gmail.com" method="POST">
-                    <!-- Honeypot -->
-                    <input type="text" name="_honey" style="display:none">
-
-                    <!-- Disable Captcha -->
+                <form action="https://formsubmit.co/ay4ayomide@gmail.com" method="POST">
+                    <!-- FormSubmit Configuration -->
                     <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://lordayo.github.io/portfolio/thanks.html">
                     
                     <div class="names">
                         <div class="input-box">
@@ -94,12 +83,7 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" class="textarea" placeholder="I'd love to hear your thoughts!" required></textarea>
                     </div>
-                    <button id="submitButton" class="button" type="submit">
-                        <span id="buttonText">Send Message <i class="fas fa-paper-plane"></i></span>
-                        <span id="loadingText" style="display: none;">
-                            Sending... <i class="fas fa-spinner fa-spin"></i>
-                        </span>
-                    </button>
+                    <button class="button" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
 

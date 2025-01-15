@@ -183,36 +183,3 @@ function handleCardClick(event, card, expandedContent) {
     }
 }
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    // Show loading state
-    const buttonText = document.getElementById('buttonText');
-    const loadingText = document.getElementById('loadingText');
-    const submitButton = document.getElementById('submitButton');
-    
-    buttonText.style.display = 'none';
-    loadingText.style.display = 'inline';
-    submitButton.disabled = true;
-
-    // Show popup after a short delay (FormSubmit will handle the actual submission)
-    setTimeout(() => {
-        document.getElementById('successPopup').style.display = 'block';
-    }, 1000);
-});
-
-function closePopup() {
-    document.getElementById('successPopup').style.display = 'none';
-}
-
-// Close popup when clicking outside
-document.getElementById('successPopup').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closePopup();
-    }
-});
-
-// Close popup when pressing Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && document.getElementById('successPopup').style.display === 'block') {
-        closePopup();
-    }
-});

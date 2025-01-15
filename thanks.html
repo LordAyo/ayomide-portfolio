@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | ayomide</title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <style>
+        .thank-you-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .thank-you-container h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .redirect-text {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .back-button {
+            margin-top: 2rem;
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #6CC832;
+            color: #1E1E1E;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #5ba82b;
+        }
+    </style>
+    <script>
+        // Redirect after 3 seconds
+        setTimeout(function() {
+            window.location.href = "../pages/contact.html";
+        }, 3000);
+
+        // Update countdown timer
+        let timeLeft = 3;
+        setInterval(function() {
+            timeLeft--;
+            if (timeLeft > 0) {
+                document.getElementById('countdown').textContent = timeLeft;
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <div class="thank-you-container">
+        <h1><span class="highlight">Thank you</span> for your message!</h1>
+        <p>I'll get back to you as soon as possible.</p>
+        <p class="redirect-text">Redirecting in <span id="countdown">3</span> seconds...</p>
+        <a href="../pages/contact.html" class="back-button">Return to Contact Page</a>
+    </div>
+</body>
+</html>
