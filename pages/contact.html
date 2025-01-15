@@ -96,7 +96,12 @@
                         <textarea id="message" name="message" class="textarea"
                             placeholder="I'd love to hear your thoughts!" required></textarea>
                     </div>
-                    <button class="button" type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+                    <button id="submitButton" class="button" type="submit">
+                        <span id="buttonText">Send Message <i class="fas fa-paper-plane"></i></span>
+                        <span id="loadingText" style="display: none;">
+                            Sending... <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
                 </form>
             </div>
 
