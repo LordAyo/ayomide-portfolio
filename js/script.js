@@ -184,8 +184,6 @@ function handleCardClick(event, card, expandedContent) {
 }
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
     // Show loading state
     const buttonText = document.getElementById('buttonText');
     const loadingText = document.getElementById('loadingText');
@@ -195,31 +193,10 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     loadingText.style.display = 'inline';
     submitButton.disabled = true;
 
-    // Get form data
-    const templateParams = {
-        from_name: document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value,
-        from_email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Send email using EmailJS
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            // Show success popup
-            document.getElementById('successPopup').style.display = 'block';
-            // Reset form
-            document.getElementById('contactForm').reset();
-        }, function(error) {
-            console.log('FAILED...', error);
-            alert('Sorry, there was an error sending your message. Please try again.');
-        })
-        .finally(() => {
-            // Reset button state
-            buttonText.style.display = 'inline';
-            loadingText.style.display = 'none';
-            submitButton.disabled = false;
-        });
+    // Show popup after a short delay (FormSubmit will handle the actual submission)
+    setTimeout(() => {
+        document.getElementById('successPopup').style.display = 'block';
+    }, 1000);
 });
 
 function closePopup() {
