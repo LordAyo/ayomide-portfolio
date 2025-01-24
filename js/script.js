@@ -1,7 +1,51 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Initialize all functionality when DOM is loaded
-    initializeNavigation();
-    initializeCards();
+    // Loading animation
+    const loadingScreen = document.querySelector('.loading-screen');
+    const loadingBar = document.querySelector('.loading-bar-progress');
+    const loadingText = document.querySelector('.loading-text');
+    const header = document.querySelector('header');
+    const content = document.querySelector('#content');
+    let progress = 0;
+
+    function updateLoader() {
+        progress += Math.random() * 30;
+        if (progress > 100) progress = 100;
+        
+        loadingBar.style.width = `${progress}%`;
+        loadingText.textContent = `${Math.round(progress)}%`;
+
+        if (progress === 100) {
+            setTimeout(() => {
+                // Fade out loading screen
+                loadingScreen.style.transition = 'opacity 0.5s ease';
+                loadingScreen.style.opacity = '0';
+                
+                // Show content
+                header.style.transition = 'opacity 0.5s ease';
+                content.style.transition = 'opacity 0.5s ease';
+                header.style.opacity = '1';
+                content.style.opacity = '1';
+                
+                // Enable scrolling
+                document.body.classList.add('loaded');
+                
+                // Remove loading screen after animation
+                setTimeout(() => {
+                    loadingScreen.remove();
+                }, 500);
+                
+                // Initialize other functionality
+                initializeNavigation();
+                initializeCards();
+                setupEventListeners();
+            }, 500);
+        } else {
+            setTimeout(updateLoader, 100);
+        }
+    }
+
+    // Start the loading animation
+    setTimeout(updateLoader, 500);
 });
 
 // Touch swipe detection with error handling
