@@ -4,169 +4,191 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeCards();
 });
 
-// Touch swipe detection
+// Touch swipe detection with error handling
 let touchStartY = 0;
 let touchEndY = 0;
 
-document.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-});
+try {
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    });
 
-document.addEventListener('touchend', (e) => {
-    touchEndY = e.changedTouches[0].clientY;
-    handleSwipe();
-});
+    document.addEventListener('touchend', (e) => {
+        touchEndY = e.changedTouches[0].clientY;
+        handleSwipe();
+    });
+} catch (error) {
+    console.error('Error in touch event handling:', error);
+}
 
-// Wheel/trackpad detection
+// Wheel/trackpad detection with debouncing
 let lastWheelTime = Date.now();
 let wheelDelta = 0;
+let isNavigating = false; // Prevent multiple navigations
 
-document.addEventListener('wheel', (e) => {
-    // Only run on index page
-    if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/') {
-        return;
-    }
+if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+    document.addEventListener('wheel', (e) => {
+        if (isNavigating) return; // Prevent multiple triggers
 
-    // Prevent default scrolling behavior
-    e.preventDefault();
+        try {
+            e.preventDefault();
 
-    const currentTime = Date.now();
-    const timeDiff = currentTime - lastWheelTime;
-    
-    // Reset wheel delta if there's a pause in scrolling
-    if (timeDiff > 100) {
-        wheelDelta = 0;
-    }
-    
-    wheelDelta += e.deltaY;
-    lastWheelTime = currentTime;
+            const currentTime = Date.now();
+            const timeDiff = currentTime - lastWheelTime;
+            
+            if (timeDiff > 100) {
+                wheelDelta = 0;
+            }
+            
+            wheelDelta += e.deltaY;
+            lastWheelTime = currentTime;
 
-    // If scroll down exceeds threshold (changed from < -100 to > 100)
-    if (wheelDelta > 100) {
-        window.location.href = './pages/about.html';
-    }
-}, { passive: false });
+            if (wheelDelta > 100) {
+                isNavigating = true; // Set flag before navigation
+                window.location.href = './pages/about.html';
+            }
+        } catch (error) {
+            console.error('Error in wheel event handling:', error);
+        }
+    }, { passive: false });
+}
 
 function handleSwipe() {
-    const swipeThreshold = 50;
-    const swipeDistance = touchStartY - touchEndY;
-    
-    // Changed from swipeDistance > swipeThreshold to swipeDistance < -swipeThreshold
-    if (swipeDistance < -swipeThreshold) {
-        window.location.href = './pages/about.html';
+    if (isNavigating) return; // Prevent multiple triggers
+
+    try {
+        const swipeThreshold = 50;
+        const swipeDistance = touchStartY - touchEndY;
+        
+        if (swipeDistance < -swipeThreshold) {
+            isNavigating = true; // Set flag before navigation
+            window.location.href = './pages/about.html';
+        }
+    } catch (error) {
+        console.error('Error in swipe handling:', error);
     }
 }
 
 function initializeNavigation() {
-    // Desktop Dropdown
-    const dropdown = document.querySelector('.dropdown');
-    if (dropdown) {
-        dropdown.addEventListener('mouseenter', () => dropdown.classList.add('open'));
-        dropdown.addEventListener('mouseleave', () => dropdown.classList.remove('open'));
-    }
+    try {
+        // Desktop Dropdown
+        const dropdown = document.querySelector('.dropdown');
+        if (dropdown) {
+            dropdown.addEventListener('mouseenter', () => dropdown.classList.add('open'));
+            dropdown.addEventListener('mouseleave', () => dropdown.classList.remove('open'));
+        }
 
-    // Mobile Navigation
-    const toggleBtn = document.querySelector('.toggle_btn');
-    const toggleBtnIcon = document.querySelector('.toggle_btn i');
-    const dropDownMenu = document.querySelector('.mobile-dropdown');
+        // Mobile Navigation
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.mobile-dropdown');
 
-    if (toggleBtn && dropDownMenu) {
-        toggleBtn.addEventListener('click', () => {
-            dropDownMenu.classList.toggle('open');
-            const isOpen = dropDownMenu.classList.contains('open');
-            if (toggleBtnIcon) {
-                toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-            }
-        });
+        if (toggleBtn && dropDownMenu) {
+            toggleBtn.addEventListener('click', () => {
+                dropDownMenu.classList.toggle('open');
+                const isOpen = dropDownMenu.classList.contains('open');
+                if (toggleBtnIcon) {
+                    toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+                }
+            });
+        }
+    } catch (error) {
+        console.error('Error in navigation initialization:', error);
     }
 }
 
 function initializeCards() {
-    const cards = document.querySelectorAll('.card');
-    const isDevPage = window.location.pathname.includes('developerProjects');
+    try {
+        const cards = document.querySelectorAll('.card');
+        if (cards.length === 0) return;
 
-    // Project Details Configuration
-    const projectConfigs = {
-        design: {
-            'Baileys Boutique Redesign': {
-                link: 'https://www.figma.com/design/vtMVx5Vw56BtkLOphgeiQT/Redesign-Project?t=0ka37eozzDTePiop-1',
-                description: 'A complete redesign focused on enhancing user experience and accessibility for an e-commerce boutique.',
-                features: [
-                    'Improved navigation and user flow',
-                    'Enhanced visual hierarchy',
-                    'Detailed product page layouts',
-                    'Responsive design across devices'
-                ]
+        const isDevPage = window.location.pathname.includes('developerProjects');
+
+        // Project Details Configuration
+        const projectConfigs = {
+            design: {
+                'Baileys Boutique Redesign': {
+                    link: 'https://www.figma.com/design/vtMVx5Vw56BtkLOphgeiQT/Redesign-Project?t=0ka37eozzDTePiop-1',
+                    description: 'A complete redesign focused on enhancing user experience and accessibility for an e-commerce boutique.',
+                    features: [
+                        'Improved navigation and user flow',
+                        'Enhanced visual hierarchy',
+                        'Detailed product page layouts',
+                        'Responsive design across devices'
+                    ]
+                },
+                'Portfolio 1.0': {
+                    link: 'https://ayomideabioye.vercel.app/index.html',
+                    description: 'A personal portfolio showcasing my design process and project work.',
+                    features: [
+                        'Clean, modern aesthetic',
+                        'Interactive design elements',
+                        'Optimized user experience',
+                        'Cohesive visual language'
+                    ]
+                },
+                'NOK NOK Weather App': {
+                    link: 'https://www.figma.com/design/HlY6xkSxTJawEgcLAPhId0/Climate-App?node-id=58-4320&t=atmgngT1kyz23fJ8-1',
+                    description: 'A weather application designed with user experience at its core.',
+                    features: [
+                        'Intuitive weather data visualization',
+                        'Clean interface design',
+                        'Engaging micro-interactions',
+                        'Accessibility considerations'
+                    ]
+                }
             },
-            'Portfolio 1.0': {
-                link: 'https://ayomideabioye.vercel.app/index.html',
-                description: 'A personal portfolio showcasing my design process and project work.',
-                features: [
-                    'Clean, modern aesthetic',
-                    'Interactive design elements',
-                    'Optimized user experience',
-                    'Cohesive visual language'
-                ]
-            },
-            'NOK NOK Weather App': {
-                link: 'https://www.figma.com/design/HlY6xkSxTJawEgcLAPhId0/Climate-App?node-id=58-4320&t=atmgngT1kyz23fJ8-1',
-                description: 'A weather application designed with user experience at its core.',
-                features: [
-                    'Intuitive weather data visualization',
-                    'Clean interface design',
-                    'Engaging micro-interactions',
-                    'Accessibility considerations'
-                ]
+            dev: {
+                'Portfolio 1.0': {
+                    githubLink: 'https://github.com/LordAyo/LordAyo.github.io',
+                    demoLink: 'https://ayomideabioye.vercel.app/index.html',
+                    description: 'A responsive personal portfolio website built from scratch using modern web technologies.',
+                    features: [
+                        'Responsive design using CSS Grid and Flexbox',
+                        'Interactive animations with JavaScript',
+                        'Custom navigation with dropdown menus',
+                        'Optimized performance and accessibility'
+                    ]
+                },
+                'Movie Hub': {
+                    githubLink: 'https://github.com/LordAyo/React-Website',
+                    demoLink: 'https://moviehub-lemon.vercel.app/',
+                    description: 'A dynamic movie discovery platform built with React, featuring real-time movie data, search functionality, and responsive design.',
+                    features: [
+                        'Real-time movie data fetched via APIs',
+                        'Search functionality for easy navigation',
+                        'Modern UI built with React',
+                        'Fully responsive design for all devices'
+                    ]
+                }
             }
-        },
-        dev: {
-            'Portfolio 1.0': {
-                githubLink: 'https://github.com/LordAyo/LordAyo.github.io',
-                demoLink: 'https://ayomideabioye.vercel.app/index.html',
-                description: 'A responsive personal portfolio website built from scratch using modern web technologies.',
-                features: [
-                    'Responsive design using CSS Grid and Flexbox',
-                    'Interactive animations with JavaScript',
-                    'Custom navigation with dropdown menus',
-                    'Optimized performance and accessibility'
-                ]
-            },
-            'Movie Hub': {
-                githubLink: 'https://github.com/LordAyo/React-Website',
-                demoLink: 'https://moviehub-lemon.vercel.app/',
-                description: 'A dynamic movie discovery platform built with React, featuring real-time movie data, search functionality, and responsive design.',
-                features: [
-                    'Real-time movie data fetched via APIs',
-                    'Search functionality for easy navigation',
-                    'Modern UI built with React',
-                    'Fully responsive design for all devices'
-                ]
-            }
-        }
-    };
+        };
 
-    cards.forEach(card => {
-        const cardTitle = card.querySelector('h3').textContent;
-        if (cardTitle === 'Coming Soon.....') return;
+        cards.forEach(card => {
+            const cardTitle = card.querySelector('h3').textContent;
+            if (cardTitle === 'Coming Soon.....') return;
 
-        const expandedContent = document.createElement('div');
-        expandedContent.className = 'expanded-content';
-        expandedContent.style.display = 'none';
+            const expandedContent = document.createElement('div');
+            expandedContent.className = 'expanded-content';
+            expandedContent.style.display = 'none';
 
-        const projectData = isDevPage ? 
-            projectConfigs.dev[cardTitle] : 
-            projectConfigs.design[cardTitle];
+            const projectData = isDevPage ? 
+                projectConfigs.dev[cardTitle] : 
+                projectConfigs.design[cardTitle];
 
-        if (!projectData) return;
+            if (!projectData) return;
 
-        expandedContent.innerHTML = isDevPage ? 
-            createDevProjectContent(projectData) :
-            createDesignProjectContent(projectData);
+            expandedContent.innerHTML = isDevPage ? 
+                createDevProjectContent(projectData) :
+                createDesignProjectContent(projectData);
 
-        card.appendChild(expandedContent);
-        
-        card.addEventListener('click', (event) => handleCardClick(event, card, expandedContent));
-    });
+            card.appendChild(expandedContent);
+            
+            card.addEventListener('click', (event) => handleCardClick(event, card, expandedContent));
+        });
+    } catch (error) {
+        console.error('Error in cards initialization:', error);
+    }
 }
 
 function createDesignProjectContent(projectData) {
@@ -214,10 +236,13 @@ function createDevProjectContent(projectData) {
 }
 
 function handleCardClick(event, card, expandedContent) {
-    // Prevent click event when clicking links
-    if (event.target.tagName === 'A' || event.target.parentElement.tagName === 'A') {
-        event.stopPropagation();
-        return;
+    // Check if clicked element or any of its parents is a link
+    let element = event.target;
+    while (element) {
+        if (element.tagName === 'A') {
+            return;
+        }
+        element = element.parentElement;
     }
 
     const isCurrentlyExpanded = card.classList.contains('expanded');
