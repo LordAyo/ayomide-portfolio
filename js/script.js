@@ -4,6 +4,59 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeCards();
 });
 
+// Touch swipe detection
+let touchStartY = 0;
+let touchEndY = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+});
+
+document.addEventListener('touchend', (e) => {
+    touchEndY = e.changedTouches[0].clientY;
+    handleSwipe();
+});
+
+// Wheel/trackpad detection
+let lastWheelTime = Date.now();
+let wheelDelta = 0;
+
+document.addEventListener('wheel', (e) => {
+    // Only run on index page
+    if (!window.location.pathname.endsWith('index.html') && window.location.pathname !== '/') {
+        return;
+    }
+
+    // Prevent default scrolling behavior
+    e.preventDefault();
+
+    const currentTime = Date.now();
+    const timeDiff = currentTime - lastWheelTime;
+    
+    // Reset wheel delta if there's a pause in scrolling
+    if (timeDiff > 100) {
+        wheelDelta = 0;
+    }
+    
+    wheelDelta += e.deltaY;
+    lastWheelTime = currentTime;
+
+    // If scroll down exceeds threshold (changed from < -100 to > 100)
+    if (wheelDelta > 100) {
+        window.location.href = './pages/about.html';
+    }
+}, { passive: false });
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const swipeDistance = touchStartY - touchEndY;
+    
+    // Changed from swipeDistance > swipeThreshold to swipeDistance < -swipeThreshold
+    if (swipeDistance < -swipeThreshold) {
+        window.location.href = './pages/about.html';
+    }
+}
+
 function initializeNavigation() {
     // Desktop Dropdown
     const dropdown = document.querySelector('.dropdown');
