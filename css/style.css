@@ -649,11 +649,14 @@ header {
 .loading-content {
     text-align: center;
     color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0rem;
+    border-radius: 10px;
 }
 
 .loading-content h2 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     font-family: 'Schoolbell', cursive;
     text-transform: lowercase;
 }
@@ -667,7 +670,7 @@ header {
     width: 200px;
     height: 2px;
     background: #333;
-    margin: 20px auto;
+    margin: 1px auto;
     position: relative;
 }
 
@@ -684,6 +687,7 @@ header {
 .loading-text {
     font-size: 14px;
     font-family: 'Schoolbell', cursive;
+    margin-top: 5px;
 }
 
 /* Add this to your existing styles */
@@ -699,4 +703,35 @@ body.loaded {
 .loading-content .full-stop {
     font-family: 'Schoolbell', cursive;
     color: #fff;
+}
+
+.animated-text {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animated-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-family: 'Schoolbell', cursive;
+    text-transform: lowercase;
+    display: inline-block;
+    transform-origin: center;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(10px) rotate(-2deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
 }
