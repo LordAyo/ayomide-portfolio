@@ -458,67 +458,6 @@ h3 {
     overflow: hidden;
 }
 
-.card.expanded {
-    transform: scale(1.02);
-    box-shadow: 0 8px 24px rgba(108, 200, 50, 0.2);
-}
-
-.expanded-content {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    animation: slideDown 0.3s ease-out;
-}
-
-.expanded-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.detail-text {
-    color: #D1D1D1;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.feature-list {
-    list-style-position: inside;
-    color: #D1D1D1;
-    padding-left: 1rem;
-}
-
-.feature-list li {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.figma-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #FFF;
-    padding: 0.75rem 1.5rem;
-    border: 2px solid #6CC832;
-    background: #4A5F42;
-    text-decoration: none;
-    border-radius: 3.125rem;
-    font-family: Montserrat;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    width: fit-content;
-}
-
-.figma-link:hover {
-    background: #5BAB2A;
-    transform: translateY(-2px);
-}
-
-.figma-link img {
-    width: 24px;
-    height: 24px;
-}
-
 @keyframes slideDown {
     from {
         opacity: 0;
