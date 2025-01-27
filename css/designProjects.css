@@ -408,7 +408,7 @@ h1 {
 }
 
 h2 {
-    margin-top: 1.88rem;
+    margin-top: 1rem;
     color: #D1D1D1;
     text-align: center;
     text-shadow: 0px 2px 4px rgba(108, 200, 50, 0.35);
@@ -430,7 +430,7 @@ h3 {
 }
 
 .card {
-    margin: 50px 109px 0px;
+    margin: 30px 109px 0px;
     padding: 3rem 1.875rem;
     border-radius: 2.5rem;
     border: 2px solid #FFF;
