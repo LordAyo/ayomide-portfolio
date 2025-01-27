@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Add this line at the top of the DOMContentLoaded callback
+    window.isLoading = true;
+    
     // Loading animation
     const loadingScreen = document.querySelector('.loading-screen');
     const loadingBar = document.querySelector('.loading-bar-progress');
@@ -40,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     loadingScreen.remove();
                 }, 500);
                 
+                // Add this line just before initializing other functionality
+                window.isLoading = false;
+                
                 // Initialize other functionality
                 initializeNavigation();
                 initializeCards();
@@ -78,7 +84,8 @@ let isNavigating = false; // Prevent multiple navigations
 
 if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
     const wheelHandler = (e) => {
-        if (isNavigating) return;
+        // Add this check at the start of wheelHandler
+        if (isNavigating || window.isLoading) return;
         
         try {
             e.preventDefault();
@@ -114,7 +121,8 @@ if (window.location.pathname.endsWith('index.html') || window.location.pathname 
  * Handles touch swipe gestures for navigation
  */
 function handleSwipe() {
-    if (isNavigating) return; // Prevent multiple triggers
+    // Add this check at the start of handleSwipe
+    if (isNavigating || window.isLoading) return;
 
     try {
         const swipeThreshold = 50;
