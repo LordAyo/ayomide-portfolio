@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+body:not(.loaded) .nav-list li,
+body:not(.loaded) .contact-btn,
+body:not(.loaded) .logo,
+body:not(.loaded) header,
+body:not(.loaded) .smallText,
+body:not(.loaded) .bigText,
+body:not(.loaded) .bigText2,
+body:not(.loaded) .getInTouch {
+    animation-play-state: paused !important;
+}
+
 body {
     min-height: 100vh;
     background: url("../images/doodle1.svg"), linear-gradient(180deg, #1E1E1E 0%, #6CC832 293.39%);

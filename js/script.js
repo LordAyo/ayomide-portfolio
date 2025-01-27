@@ -35,15 +35,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 header.style.opacity = '1';
                 content.style.opacity = '1';
                 
-                // Enable scrolling
+                // Enable scrolling and start animations
                 document.body.classList.add('loaded');
                 
                 // Remove loading screen after animation
                 setTimeout(() => {
                     loadingScreen.remove();
+                    
+                    // Restart all animations
+                    document.querySelectorAll('[style*="animation"]').forEach(element => {
+                        element.style.animationPlayState = 'running';
+                    });
                 }, 500);
                 
-                // Add this line just before initializing other functionality
                 window.isLoading = false;
                 
                 // Initialize other functionality
