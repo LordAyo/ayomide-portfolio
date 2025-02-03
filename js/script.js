@@ -171,3 +171,58 @@ function initializeNavigation() {
         console.error('Error in navigation initialization:', error);
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel');
+    const cards = document.querySelectorAll('.card');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    
+    let currentIndex = 0;
+    const totalCards = cards.length;
+
+    function updateCarousel() {
+        // Update transform
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update active states
+        cards.forEach((card, index) => {
+            card.classList.toggle('active', index === currentIndex);
+        });
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+
+    // Event Listeners
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+        updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalCards;
+        updateCarousel();
+    });
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Initialize
+    updateCarousel();
+
+    // Optional: Auto-play
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalCards;
+        updateCarousel();
+    }, 5000);
+});
