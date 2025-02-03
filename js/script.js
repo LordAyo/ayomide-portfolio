@@ -208,6 +208,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
     const totalCards = cards.length;
 
+    // Add click handlers to cards
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        if (card.classList.contains('active')) {
+          const projectId = card.getAttribute('data-project-id');
+          if (projectId) {
+            window.location.href = `../pages/projects/${projectId}.html`;
+          }
+        }
+      });
+    });
+
     function updateCarousel() {
       // Update transform
       carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
