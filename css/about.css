@@ -508,8 +508,14 @@ header {
     bottom: 20px;
     right: 15px;
     animation: fadeInUp 1s ease-out forwards;
+    transition: all 0.3s ease;
 }
 
+.download-cv-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 10px 6px 0px rgba(108, 200, 50, 0.50);
+    background: #7de23c;
+}
 
 .vector {
     margin-top: 1rem;
@@ -571,7 +577,7 @@ header {
     border: 1px solid #FFF;
     background: rgba(255, 255, 255, 0.22);
     backdrop-filter: blur(27.600000381469727px);
-    margin: 0 6.75rem 2rem;
+    margin: 0 6.75rem 3rem;
     padding: 1.5rem 2rem;
 }
 
