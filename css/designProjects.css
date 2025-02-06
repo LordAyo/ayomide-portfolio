@@ -800,3 +800,30 @@ h3 {
     font-size: 0.9rem;
   }
 }
+
+/* Add icon animations */
+.project-btn i {
+  font-size: 1em;
+  transition: transform 0.3s ease;
+}
+
+.view-project:hover i {
+  transform: scale(1.2); /* Eye icon scales up */
+}
+
+.view-figma:hover i {
+  transform: rotate(360deg); /* Figma icon spins */
+}
+
+/* Update mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .project-btn {
+    width: 100%;
+  }
+}

@@ -754,3 +754,51 @@ h3 {
     line-height: 36px;
   }
 }
+/* Text link styling */
+.text-link {
+  margin-top: 1rem;
+  color: #6cc832;
+  text-decoration: underline;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.text-link i {
+  font-size: 0.9em;
+  transition: transform 0.3s ease;
+}
+
+.text-link:hover i {
+  transform: translateX(4px);
+}
+
+/* Add icon animations */
+.project-btn i {
+  font-size: 1em;
+  transition: transform 0.3s ease;
+}
+
+.live-site:hover i {
+  transform: rotate(15deg);
+}
+
+.github:hover i {
+  transform: rotate(360deg);
+}
+
+/* Update mobile responsiveness for the new link */
+@media screen and (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .text-link {
+    margin-top: 0.75rem;
+  }
+}
