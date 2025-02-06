@@ -433,6 +433,8 @@ h3 {
   backdrop-filter: blur(27.600000381469727px);
   animation: fadeIn 1s ease-out;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(0.85);
+  margin: 20px 20px;
 }
 
 .card img {
@@ -447,9 +449,9 @@ h3 {
 }
 
 .card:hover {
+  transform: scale(0.95) !important;
   box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.25),
     0px 0px 15px rgba(255, 255, 255, 0.5);
-  transform: scale(1.05) !important;
 }
 
 .card {
@@ -600,7 +602,7 @@ h3 {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 0 60px;
+  padding: 0 80px;
 }
 
 .carousel {
@@ -666,11 +668,11 @@ h3 {
 }
 
 .carousel-btn.prev {
-  left: 5px;
+  left: 20px;
 }
 
 .carousel-btn.next {
-  right: 5px;
+  right: 20px;
 }
 
 .carousel-indicators {
@@ -719,7 +721,7 @@ h3 {
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   font-family: "JetBrains Mono", monospace;
   transition: all 0.3s ease;
   display: flex;
@@ -730,15 +732,11 @@ h3 {
 
 /* Design Projects Buttons */
 .view-project {
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
   background: #6cc832;
   color: #1e1e1e;
 }
 
 .view-figma {
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
   border: 2px solid #6cc832;
   color: #6cc832;
 }
@@ -779,13 +777,13 @@ h3 {
 }
 
 @media screen and (max-width: 768px) {
+  .carousel-container {
+    padding: 0 60px;
+  }
+
   .carousel-btn {
     width: 40px;
     height: 40px;
-  }
-
-  .carousel-container {
-    padding: 0 10px;
   }
 
   .card {
@@ -798,6 +796,14 @@ h3 {
 
   .card h4 {
     font-size: 0.9rem;
+  }
+
+  .carousel-btn.prev {
+    left: 10px;
+  }
+
+  .carousel-btn.next {
+    right: 10px;
   }
 }
 
