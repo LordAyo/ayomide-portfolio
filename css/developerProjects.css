@@ -415,12 +415,12 @@ h2 {
 }
 
 h3 {
-  margin-top: 1.38rem;
+  margin: 1rem 0;
   color: #6cc832;
   font-family: Montserrat;
   font-size: 1.875rem;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   line-height: normal;
 }
 
@@ -430,7 +430,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   max-width: 1200px;
-  margin: 50px auto;
+  margin: 5px auto;
 }
 
 .carousel-container {
@@ -460,7 +460,7 @@ h3 {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0.4;
   transform: scale(0.8);
-  margin: 0;
+  margin: 20px 0 0 0;
   padding: 2rem;
   box-sizing: border-box;
   border-radius: 2.5rem;
@@ -510,7 +510,6 @@ h3 {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 30px;
   width: 100%;
   padding: 20px 0;
 }
@@ -536,11 +535,9 @@ h3 {
   width: 100%;
   height: auto;
   object-fit: contain;
-  margin-bottom: 1.5rem;
 }
 
 .card h3 {
-  margin: 0 0 1rem 0;
   color: #6cc832;
   font-family: Montserrat;
   font-size: 2rem;
@@ -551,7 +548,6 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 1rem 0;
 }
 
 .tag {
@@ -632,72 +628,72 @@ h3 {
 
 /* Add to both designProjects.css and developerProjects.css */
 .button-container {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    margin-top: auto; /* Pushes buttons to bottom of card */
-    padding-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  margin-top: auto; /* Pushes buttons to bottom of card */
+  padding-top: 1.5rem;
 }
 
 .project-btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-family: "JetBrains Mono", monospace;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: "JetBrains Mono", monospace;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 /* Design Projects Buttons */
 .view-project {
-    background: #6cc832;
-    color: #1e1e1e;
+  background: #6cc832;
+  color: #1e1e1e;
 }
 
 .view-figma {
-    border: 2px solid #6cc832;
-    color: #6cc832;
+  border: 2px solid #6cc832;
+  color: #6cc832;
 }
 
 /* Developer Projects Buttons */
 .live-site {
-    font-family: "Montserrat", sans-serif;
-    background: #6cc832;
-    color: #1e1e1e;
+  font-family: "Montserrat", sans-serif;
+  background: #6cc832;
+  color: #1e1e1e;
 }
 
 .github {
-    font-family: "Montserrat", sans-serif;
-    border: 2px solid #6cc832;
-    color: #6cc832;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #6cc832;
+  color: #6cc832;
 }
 
 /* Hover effects */
 .project-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(108, 200, 50, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108, 200, 50, 0.3);
 }
 
 .view-figma:hover,
 .github:hover {
-    background: rgba(108, 200, 50, 0.1);
+  background: rgba(108, 200, 50, 0.1);
 }
 
 /* Mobile responsiveness */
 @media screen and (max-width: 768px) {
-    .button-container {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
+  .button-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
-    .project-btn {
-        padding: 0.6rem 1.25rem;
-        font-size: 0.9rem;
-    }
+  .project-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (max-width: 768px) {

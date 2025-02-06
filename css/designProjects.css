@@ -415,12 +415,12 @@ h2 {
 }
 
 h3 {
-  margin-top: 1.38rem;
+  margin: 1rem 0;
   color: #6cc832;
   font-family: Montserrat;
   font-size: 1.875rem;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   line-height: normal;
 }
 
@@ -440,6 +440,10 @@ h3 {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.card:first-child {
+  margin-bottom: 1.5rem;
 }
 
 .card:hover {
@@ -468,33 +472,49 @@ h3 {
 .tag-container {
   display: flex;
   gap: 10px;
-  margin: 1.38rem 0;
 }
 
 .tag {
-    display: flex;
-    gap: 10px;
-    border-radius: 3.125rem;
-    padding: 1rem 1.875rem;
-    border: 2px solid #6CC832;
-    background: #4A5F42;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(27.5px);
-    color: #FFF;
-    font-family: Montserrat;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 3.125rem;
+  border: 2px solid #6cc832;
+  background: #4a5f42;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(27.5px);
+  height: 40px;
+  box-sizing: border-box;
 }
 
-h4 {
-  color: #d1d1d1;
+.tag img {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-self: center;
+}
+
+.tag p {
+  color: #fff;
   font-family: Montserrat;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.card h4 {
+  margin: 1rem 0 0 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #d1d1d1;
 }
 
 #weather-card {
@@ -573,7 +593,7 @@ h4 {
   flex-direction: column;
   align-items: center;
   max-width: 1200px;
-  margin: 10px auto;
+  margin: 5px auto;
 }
 
 .carousel-container {
@@ -615,7 +635,6 @@ h4 {
 }
 
 .card h3 {
-  margin: 0 0 1rem 0;
   font-size: 2rem;
 }
 
@@ -689,72 +708,74 @@ h4 {
 }
 
 .button-container {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    margin-top: auto; /* Pushes buttons to bottom of card */
-    padding-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  margin-top: auto; /* Pushes buttons to bottom of card */
+  padding-top: 1.5rem;
 }
 
 .project-btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-family: "JetBrains Mono", monospace;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "JetBrains Mono", monospace;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 /* Design Projects Buttons */
 .view-project {
-    font-family: "Montserrat", sans-serif;
-    background: #6cc832;
-    color: #1e1e1e;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  background: #6cc832;
+  color: #1e1e1e;
 }
 
 .view-figma {
-    font-family: "Montserrat", sans-serif;
-    border: 2px solid #6cc832;
-    color: #6cc832;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #6cc832;
+  color: #6cc832;
 }
 
 /* Developer Projects Buttons */
 .live-site {
-    background: #6cc832;
-    color: #1e1e1e;
+  background: #6cc832;
+  color: #1e1e1e;
 }
 
 .github {
-    border: 2px solid #6cc832;
-    color: #6cc832;
+  border: 2px solid #6cc832;
+  color: #6cc832;
 }
 
 /* Hover effects */
 .project-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(108, 200, 50, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108, 200, 50, 0.3);
 }
 
 .view-figma:hover,
 .github:hover {
-    background: rgba(108, 200, 50, 0.1);
+  background: rgba(108, 200, 50, 0.1);
 }
 
 /* Mobile responsiveness */
 @media screen and (max-width: 768px) {
-    .button-container {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
+  .button-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
-    .project-btn {
-        padding: 0.6rem 1.25rem;
-        font-size: 0.9rem;
-    }
+  .project-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
