@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #00dc7d;
+  --primary-color: #2a6e58;
   --text-color: #333333;
   --background-color: #ffffff;
-  --secondary-background: #f5f5f7;
+  --secondary-background: #f7f7e8;
 }
 
 body {
@@ -10,18 +10,36 @@ body {
   margin: 0;
   padding: 0;
   color: var(--text-color);
-  background-color: var(--background-color);
+  background-color: #fefee3;
+  background-image: url("../images/doodle2.svg");
+  background-repeat: repeat;
+  background-size: 600px;
+  background-attachment: fixed;
+  background-position: center;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  -webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .project-content {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: 40px auto;
+  padding: 40px;
+  background: rgba(254, 254, 227, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 1px solid #2a6e58;
+  box-shadow: 0 0 20px rgba(42, 110, 88, 0.05);
 }
 
 .project-header {
   text-align: center;
-  margin-bottom: 60px;
+  padding: 25px;
 }
 
 .project-category {
@@ -33,7 +51,7 @@ body {
 
 .project-header h1 {
   font-size: 3.5rem;
-  margin: 20px 0;
+  margin: 5px 0;
 }
 
 .project-intro {
@@ -41,10 +59,11 @@ body {
   margin: 0 auto;
   font-size: 1.2rem;
   line-height: 1.6;
+  padding: 0px 30px;
 }
 
 .project-overview {
-  margin: 60px 0;
+  padding: 0px 30px;
 }
 
 .overview-image img {
@@ -57,23 +76,37 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .detail-item {
   text-align: center;
+  padding: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid #2a6e58;
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+.detail-item:hover {
+  transform: translateY(-5px);
+  background-color: #2a6e58;
+  color: #fefee3;
 }
 
 .detail-item h3 {
-  color: var(--primary-color);
+  color: #2a6e58;
   margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.detail-item:hover h3 {
+  color: #fefee3;
 }
 
 .process-section {
-  padding: 80px 0;
-  background-color: var(--secondary-background);
-  margin: 60px -20px;
-  padding-inline: 20px;
+  padding: 0px 40px;
+  margin: 40px 0;
 }
 
 .process-steps {
@@ -85,19 +118,30 @@ body {
 
 .step {
   padding: 30px;
-  background: white;
+  border: 1px solid #2a6e58;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  background-color: #2a6e58;
+  color: #fefee3;
 }
 
 .step-number {
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  font-weight: bold;
+  color: #2a6e58;
+  transition: color 0.3s ease;
+}
+
+.step:hover .step-number {
+  color: #fefee3;
 }
 
 .project-gallery {
   margin: 60px 0;
+  padding: 0px 40px;
 }
 
 .gallery-grid {
@@ -111,6 +155,7 @@ body {
   width: 100%;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(46, 106, 82, 0.1);
 }
 
 .gallery-grid img:hover {
@@ -119,7 +164,7 @@ body {
 
 .next-project {
   text-align: center;
-  margin: 80px 0;
+  padding: 0px 40px;
 }
 
 .next-project-link {
@@ -148,8 +193,8 @@ body {
   align-items: center;
   gap: 10px;
   padding: 12px 20px;
-  background-color: var(--background-color);
-  border: 1px solid var(--text-color);
+  background-color: transparent;
+  border: 1px solid #2a6e58;
   border-radius: 30px;
   color: var(--text-color);
   text-decoration: none;
@@ -158,7 +203,7 @@ body {
 }
 
 .back-button a:hover {
-  background-color: var(--text-color);
+  background-color: var(--primary-color);
   color: var(--background-color);
   transform: translateX(-5px);
 }
@@ -167,7 +212,43 @@ body {
   font-size: 0.9em;
 }
 
+h2 {
+  color: #2a6e58;
+}
+
+h3 {
+  color: #2a6e58;
+}
+
+.step:hover h3,
+.detail-item:hover h2 {
+  color: #fefee3;
+}
+
+.step:hover h2,
+.detail-item:hover h2 {
+  color: #fefee3;
+}
+
 @media (max-width: 768px) {
+  .project-content {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .project-header,
+  .project-intro,
+  .project-overview,
+  .process-section {
+    padding: 20px;
+  }
+
+  .detail-item,
+  .step {
+    padding: 20px;
+  }
+
   .project-header h1 {
     font-size: 2.5rem;
   }
@@ -189,3 +270,5 @@ body {
     width: fit-content;
   }
 }
+
+
