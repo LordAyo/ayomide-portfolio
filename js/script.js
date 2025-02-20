@@ -1,69 +1,76 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Add this line at the top of the DOMContentLoaded callback
-  window.isLoading = true;
+  // Initialize navigation for all pages
+  initializeNavigation();
 
-  // Loading animation
-  const loadingScreen = document.querySelector(".loading-screen");
-  const loadingBar = document.querySelector(".loading-bar-progress");
-  const loadingText = document.querySelector(".loading-text");
-  const header = document.querySelector("header");
-  const content = document.querySelector("#content");
-  let progress = 0;
+  // Only run the loading animation and other index-specific code if we're on the index page
+  if (
+    window.location.pathname.endsWith("index.html") ||
+    window.location.pathname === "/"
+  ) {
+    window.isLoading = true;
 
-  /**
-   * Updates the loading screen progress bar and transitions to main content
-   */
-  function updateLoader() {
-    progress += Math.random() * 30;
-    if (progress > 100) progress = 100;
+    // Loading animation
+    const loadingScreen = document.querySelector(".loading-screen");
+    const loadingBar = document.querySelector(".loading-bar-progress");
+    const loadingText = document.querySelector(".loading-text");
+    const header = document.querySelector("header");
+    const content = document.querySelector("#content");
+    let progress = 0;
 
-    // Add requestAnimationFrame for smoother animation
-    requestAnimationFrame(() => {
-      loadingBar.style.width = `${progress}%`;
-      loadingText.textContent = `${Math.round(progress)}%`;
-    });
+    /**
+     * Updates the loading screen progress bar and transitions to main content
+     */
+    function updateLoader() {
+      progress += Math.random() * 30;
+      if (progress > 100) progress = 100;
 
-    if (progress === 100) {
-      setTimeout(() => {
-        // Fade out loading screen
-        loadingScreen.style.transition = "opacity 0.5s ease";
-        loadingScreen.style.opacity = "0";
+      // Add requestAnimationFrame for smoother animation
+      requestAnimationFrame(() => {
+        loadingBar.style.width = `${progress}%`;
+        loadingText.textContent = `${Math.round(progress)}%`;
+      });
 
-        // Show content
-        header.style.transition = "opacity 0.5s ease";
-        content.style.transition = "opacity 0.5s ease";
-        header.style.opacity = "1";
-        content.style.opacity = "1";
-
-        // Enable scrolling and start animations
-        document.body.classList.add("loaded");
-
-        // Remove loading screen after animation
+      if (progress === 100) {
         setTimeout(() => {
-          loadingScreen.remove();
+          // Fade out loading screen
+          loadingScreen.style.transition = "opacity 0.5s ease";
+          loadingScreen.style.opacity = "0";
 
-          // Restart all animations
-          document
-            .querySelectorAll('[style*="animation"]')
-            .forEach((element) => {
-              element.style.animationPlayState = "running";
-            });
+          // Show content
+          header.style.transition = "opacity 0.5s ease";
+          content.style.transition = "opacity 0.5s ease";
+          header.style.opacity = "1";
+          content.style.opacity = "1";
+
+          // Enable scrolling and start animations
+          document.body.classList.add("loaded");
+
+          // Remove loading screen after animation
+          setTimeout(() => {
+            loadingScreen.remove();
+
+            // Restart all animations
+            document
+              .querySelectorAll('[style*="animation"]')
+              .forEach((element) => {
+                element.style.animationPlayState = "running";
+              });
+          }, 500);
+
+          window.isLoading = false;
+
+          // Initialize other functionality
+          initializeCards();
+          setupEventListeners();
         }, 500);
-
-        window.isLoading = false;
-
-        // Initialize other functionality
-        initializeNavigation();
-        initializeCards();
-        setupEventListeners();
-      }, 500);
-    } else {
-      setTimeout(updateLoader, 100);
+      } else {
+        setTimeout(updateLoader, 100);
+      }
     }
-  }
 
-  // Start the loading animation
-  setTimeout(updateLoader, 500);
+    // Start the loading animation
+    setTimeout(updateLoader, 500);
+  }
 });
 
 // Touch swipe detection with error handling
@@ -168,119 +175,102 @@ function initializeNavigation() {
     const dropDownMenu = document.querySelector(".mobile-dropdown");
 
     if (toggleBtn && dropDownMenu) {
-      toggleBtn.addEventListener("click", () => {
+      toggleBtn.onclick = function () {
         dropDownMenu.classList.toggle("open");
-        const isOpen = dropDownMenu.classList.contains("open");
-        if (toggleBtnIcon) {
-          toggleBtnIcon.classList = isOpen
-            ? "fa-solid fa-xmark"
-            : "fa-solid fa-bars";
-        }
-      });
+        toggleBtnIcon.classList.toggle("fa-bars");
+        toggleBtnIcon.classList.toggle("fa-xmark");
+      };
     }
   } catch (error) {
     console.error("Error in navigation initialization:", error);
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Mobile menu functionality
-  const toggleBtn = document.querySelector(".toggle_btn");
-  const mobileDropdown = document.querySelector(".mobile-dropdown");
+// Carousel functionality
+function initializeCarousel(carouselWrapper) {
+  if (!carouselWrapper) return;
 
-  toggleBtn.addEventListener("click", function () {
-    const icon = this.querySelector("i");
-    icon.classList.toggle("fa-bars");
-    icon.classList.toggle("fa-xmark");
-    mobileDropdown.classList.toggle("open");
+  const carousel = carouselWrapper.querySelector(".carousel");
+  const cards = carousel.querySelectorAll(".card");
+  const indicators = carouselWrapper.querySelectorAll(".indicator");
+  const prevBtn = carouselWrapper.querySelector(".carousel-btn.prev");
+  const nextBtn = carouselWrapper.querySelector(".carousel-btn.next");
+
+  let currentIndex = 0;
+  const totalCards = cards.length;
+
+  // Add click handlers to cards
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      if (card.classList.contains("active")) {
+        const projectId = card.getAttribute("data-project-id");
+        if (projectId) {
+          window.location.href = `../pages/projects/${projectId}.html`;
+        }
+      }
+    });
   });
 
-  // Carousel functionality
-  function initializeCarousel(carouselWrapper) {
-    if (!carouselWrapper) return;
+  function updateCarousel() {
+    // Update transform
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    const carousel = carouselWrapper.querySelector(".carousel");
-    const cards = carousel.querySelectorAll(".card");
-    const indicators = carouselWrapper.querySelectorAll(".indicator");
-    const prevBtn = carouselWrapper.querySelector(".carousel-btn.prev");
-    const nextBtn = carouselWrapper.querySelector(".carousel-btn.next");
-
-    let currentIndex = 0;
-    const totalCards = cards.length;
-
-    // Add click handlers to cards
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        if (card.classList.contains('active')) {
-          const projectId = card.getAttribute('data-project-id');
-          if (projectId) {
-            window.location.href = `../pages/projects/${projectId}.html`;
-          }
-        }
-      });
+    // Update active states
+    cards.forEach((card, index) => {
+      card.classList.toggle("active", index === currentIndex);
     });
 
-    function updateCarousel() {
-      // Update transform
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-      // Update active states
-      cards.forEach((card, index) => {
-        card.classList.toggle("active", index === currentIndex);
-      });
-
-      // Update indicators
-      indicators.forEach((indicator, index) => {
-        indicator.classList.toggle("active", index === currentIndex);
-      });
-    }
-
-    function goToSlide(index) {
-      currentIndex = index;
-      updateCarousel();
-    }
-
-    // Event Listeners
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-      updateCarousel();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % totalCards;
-      updateCarousel();
-    });
-
+    // Update indicators
     indicators.forEach((indicator, index) => {
-      indicator.addEventListener("click", () => goToSlide(index));
+      indicator.classList.toggle("active", index === currentIndex);
     });
+  }
 
-    // Initialize
+  function goToSlide(index) {
+    currentIndex = index;
     updateCarousel();
+  }
 
-    // Optional: Auto-play
-    let autoplayInterval = setInterval(() => {
+  // Event Listeners
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateCarousel();
+  });
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => goToSlide(index));
+  });
+
+  // Initialize
+  updateCarousel();
+
+  // Optional: Auto-play
+  let autoplayInterval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateCarousel();
+  }, 5000);
+
+  // Pause autoplay on hover
+  carouselWrapper.addEventListener("mouseenter", () => {
+    clearInterval(autoplayInterval);
+  });
+
+  // Resume autoplay when mouse leaves
+  carouselWrapper.addEventListener("mouseleave", () => {
+    autoplayInterval = setInterval(() => {
       currentIndex = (currentIndex + 1) % totalCards;
       updateCarousel();
     }, 5000);
+  });
+}
 
-    // Pause autoplay on hover
-    carouselWrapper.addEventListener("mouseenter", () => {
-      clearInterval(autoplayInterval);
-    });
-
-    // Resume autoplay when mouse leaves
-    carouselWrapper.addEventListener("mouseleave", () => {
-      autoplayInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % totalCards;
-        updateCarousel();
-      }, 5000);
-    });
-  }
-
-  // Initialize carousel for the current page
-  const carouselWrapper = document.querySelector(".carousel-wrapper");
-  if (carouselWrapper) {
-    initializeCarousel(carouselWrapper);
-  }
-});
+// Initialize carousel for the current page
+const carouselWrapper = document.querySelector(".carousel-wrapper");
+if (carouselWrapper) {
+  initializeCarousel(carouselWrapper);
+}
