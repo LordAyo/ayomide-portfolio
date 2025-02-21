@@ -2,11 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize navigation for all pages
   initializeNavigation();
 
-  // Only run the loading animation and other index-specific code if we're on the index page
+  // Only run the loading animation if we're on the index page and it's the first visit
   if (
-    window.location.pathname.endsWith("index.html") ||
-    window.location.pathname === "/" ||
-    window.location.pathname.endsWith("/") // Add this condition for deployed environments
+    (window.location.pathname.endsWith("index.html") ||
+      window.location.pathname === "/" ||
+      window.location.pathname.endsWith("/")) &&
+    !localStorage.getItem("hasVisited")
   ) {
     try {
       window.isLoading = true;
@@ -19,7 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = document.querySelector("#content");
 
       // Check if elements exist
-      if (!loadingScreen || !loadingBar || !loadingText || !header || !content) {
+      if (
+        !loadingScreen ||
+        !loadingBar ||
+        !loadingText ||
+        !header ||
+        !content
+      ) {
         console.error("Required elements not found");
         return;
       }
@@ -28,11 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       function updateLoader() {
         try {
-          progress += 2; // Use a fixed increment instead of random for more reliability
-          
+          progress += 5; // Increased increment for faster loading
+
           if (progress > 100) {
             progress = 100;
-            
+
             // Fade out loading screen
             loadingScreen.style.transition = "opacity 0.5s ease";
             loadingScreen.style.opacity = "0";
@@ -50,12 +57,17 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(() => {
               loadingScreen.remove();
               // Restart all animations
-              document.querySelectorAll('[style*="animation"]').forEach((element) => {
-                element.style.animationPlayState = "running";
-              });
+              document
+                .querySelectorAll('[style*="animation"]')
+                .forEach((element) => {
+                  element.style.animationPlayState = "running";
+                });
             }, 500);
 
             window.isLoading = false;
+
+            // Set visited flag in localStorage
+            localStorage.setItem("hasVisited", "true");
             return;
           }
 
@@ -63,15 +75,15 @@ document.addEventListener("DOMContentLoaded", function () {
           loadingBar.style.width = `${progress}%`;
           loadingText.textContent = `${Math.round(progress)}%`;
 
-          // Schedule next update
-          setTimeout(updateLoader, 50);
+          // Schedule next update with shorter delay
+          setTimeout(updateLoader, 30);
         } catch (error) {
           console.error("Error in updateLoader:", error);
         }
       }
 
-      // Start the loading animation
-      setTimeout(updateLoader, 500);
+      // Start the loading animation with shorter initial delay
+      setTimeout(updateLoader, 200);
     } catch (error) {
       console.error("Error initializing loader:", error);
       // Fallback: Show content if loader fails
@@ -79,6 +91,17 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector("#content").style.opacity = "1";
       document.querySelector(".loading-screen")?.remove();
     }
+  } else {
+    // If not first visit, immediately show content
+    const header = document.querySelector("header");
+    const content = document.querySelector("#content");
+    const loadingScreen = document.querySelector(".loading-screen");
+
+    if (header) header.style.opacity = "1";
+    if (content) content.style.opacity = "1";
+    if (loadingScreen) loadingScreen.remove();
+
+    document.body.classList.add("loaded");
   }
 });
 
