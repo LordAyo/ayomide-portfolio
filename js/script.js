@@ -5,64 +5,80 @@ document.addEventListener("DOMContentLoaded", function () {
   // Only run the loading animation and other index-specific code if we're on the index page
   if (
     window.location.pathname.endsWith("index.html") ||
-    window.location.pathname === "/"
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/") // Add this condition for deployed environments
   ) {
-    window.isLoading = true;
+    try {
+      window.isLoading = true;
 
-    // Loading animation
-    const loadingScreen = document.querySelector(".loading-screen");
-    const loadingBar = document.querySelector(".loading-bar-progress");
-    const loadingText = document.querySelector(".loading-text");
-    const header = document.querySelector("header");
-    const content = document.querySelector("#content");
-    let progress = 0;
+      // Loading animation
+      const loadingScreen = document.querySelector(".loading-screen");
+      const loadingBar = document.querySelector(".loading-bar-progress");
+      const loadingText = document.querySelector(".loading-text");
+      const header = document.querySelector("header");
+      const content = document.querySelector("#content");
 
-    /**
-     * Updates the loading screen progress bar and transitions to main content
-     */
-    function updateLoader() {
-      progress += Math.random() * 30;
-      if (progress > 100) {
-        progress = 100;
-        
-        // Fade out loading screen
-        loadingScreen.style.transition = "opacity 0.5s ease";
-        loadingScreen.style.opacity = "0";
-
-        // Show content
-        header.style.transition = "opacity 0.5s ease";
-        content.style.transition = "opacity 0.5s ease";
-        header.style.opacity = "1";
-        content.style.opacity = "1";
-
-        // Enable scrolling and start animations
-        document.body.classList.add("loaded");
-
-        // Remove loading screen after animation
-        setTimeout(() => {
-          loadingScreen.remove();
-
-          // Restart all animations
-          document.querySelectorAll('[style*="animation"]').forEach((element) => {
-            element.style.animationPlayState = "running";
-          });
-        }, 500);
-
-        window.isLoading = false;
-        return; // Exit the function when loading is complete
+      // Check if elements exist
+      if (!loadingScreen || !loadingBar || !loadingText || !header || !content) {
+        console.error("Required elements not found");
+        return;
       }
 
-      // Add requestAnimationFrame for smoother animation
-      requestAnimationFrame(() => {
-        loadingBar.style.width = `${progress}%`;
-        loadingText.textContent = `${Math.round(progress)}%`;
-      });
+      let progress = 0;
 
-      setTimeout(updateLoader, 100);
+      function updateLoader() {
+        try {
+          progress += 2; // Use a fixed increment instead of random for more reliability
+          
+          if (progress > 100) {
+            progress = 100;
+            
+            // Fade out loading screen
+            loadingScreen.style.transition = "opacity 0.5s ease";
+            loadingScreen.style.opacity = "0";
+
+            // Show content
+            header.style.transition = "opacity 0.5s ease";
+            content.style.transition = "opacity 0.5s ease";
+            header.style.opacity = "1";
+            content.style.opacity = "1";
+
+            // Enable scrolling and start animations
+            document.body.classList.add("loaded");
+
+            // Remove loading screen after animation
+            setTimeout(() => {
+              loadingScreen.remove();
+              // Restart all animations
+              document.querySelectorAll('[style*="animation"]').forEach((element) => {
+                element.style.animationPlayState = "running";
+              });
+            }, 500);
+
+            window.isLoading = false;
+            return;
+          }
+
+          // Update the loading bar and text
+          loadingBar.style.width = `${progress}%`;
+          loadingText.textContent = `${Math.round(progress)}%`;
+
+          // Schedule next update
+          setTimeout(updateLoader, 50);
+        } catch (error) {
+          console.error("Error in updateLoader:", error);
+        }
+      }
+
+      // Start the loading animation
+      setTimeout(updateLoader, 500);
+    } catch (error) {
+      console.error("Error initializing loader:", error);
+      // Fallback: Show content if loader fails
+      document.querySelector("header").style.opacity = "1";
+      document.querySelector("#content").style.opacity = "1";
+      document.querySelector(".loading-screen")?.remove();
     }
-
-    // Start the loading animation
-    setTimeout(updateLoader, 500);
   }
 });
 
