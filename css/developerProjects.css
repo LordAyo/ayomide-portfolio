@@ -673,9 +673,8 @@ h3 {
 
 /* Developer Projects Buttons */
 .live-site {
-  font-family: "Montserrat", sans-serif;
-  background: #6cc832;
-  color: #1e1e1e;
+  border: 2px solid #6cc832;
+  color: #6cc832;
 }
 
 .github {
