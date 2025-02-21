@@ -103,6 +103,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.classList.add("loaded");
   }
+
+  // Initialize animations for project details page
+  if (document.querySelector(".project-content")) {
+    initializeProjectAnimations();
+  }
 });
 
 // Touch swipe detection with error handling
@@ -306,3 +311,103 @@ const carouselWrapper = document.querySelector(".carousel-wrapper");
 if (carouselWrapper) {
   initializeCarousel(carouselWrapper);
 }
+
+function initializeProjectAnimations() {
+  // Initial load animations
+  const initialElements = document.querySelectorAll(
+    ".project-header, .project-intro"
+  );
+  initialElements.forEach((element) => {
+    element.style.opacity = "0";
+    setTimeout(() => {
+      element.style.opacity = "1";
+      element.style.animation = "fadeIn 0.8s ease-out forwards";
+    }, 100);
+  });
+
+  // Scroll-triggered animations
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Add appropriate animation based on element type
+        if (entry.target.classList.contains("project-overview")) {
+          entry.target.style.animation = "fadeIn 0.8s ease-out forwards";
+        }
+
+        if (entry.target.classList.contains("detail-item")) {
+          const delay = entry.target.dataset.animationDelay || "0s";
+          entry.target.style.animation = `slideUp 0.6s ease-out ${delay} forwards`;
+        }
+
+        if (entry.target.classList.contains("step")) {
+          const delay = entry.target.dataset.animationDelay || "0s";
+          entry.target.style.animation = `slideUp 0.6s ease-out ${delay} forwards`;
+        }
+
+        if (entry.target.classList.contains("project-gallery")) {
+          entry.target.style.animation = "fadeIn 1s ease-out forwards";
+        }
+
+        if (entry.target.classList.contains("next-project")) {
+          entry.target.style.animation = "slideUp 0.8s ease-out forwards";
+        }
+
+        // Unobserve after animation
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Set initial states and add animation delays
+  const detailItems = document.querySelectorAll(".detail-item");
+  detailItems.forEach((item, index) => {
+    item.style.opacity = "0";
+    item.dataset.animationDelay = `${index * 0.2}s`;
+    observer.observe(item);
+  });
+
+  const processSteps = document.querySelectorAll(".step");
+  processSteps.forEach((step, index) => {
+    step.style.opacity = "0";
+    step.dataset.animationDelay = `${index * 0.2}s`;
+    observer.observe(step);
+  });
+
+  // Observe other elements
+  const scrollElements = document.querySelectorAll(`
+    .project-overview,
+    .project-gallery,
+    .next-project
+  `);
+
+  scrollElements.forEach((element) => {
+    element.style.opacity = "0";
+    observer.observe(element);
+  });
+}
+
+// Add these keyframe animations if they're not already in your CSS
+const styleSheet = document.createElement("style");
+styleSheet.textContent = `
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+document.head.appendChild(styleSheet);

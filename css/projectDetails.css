@@ -35,11 +35,13 @@ body {
   border-radius: 30px;
   border: 1px solid #2a6e58;
   box-shadow: 0 0 20px rgba(42, 110, 88, 0.05);
+  animation: fadeIn 0.8s ease-out;
 }
 
 .project-header {
   text-align: center;
   padding: 25px;
+  animation: slideDown 0.6s ease-out;
 }
 
 .project-category {
@@ -86,6 +88,19 @@ body {
   border: 1px solid #2a6e58;
   border-radius: 15px;
   background-color: transparent;
+  animation: attachFromRight 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateX(100px) scale(0.8);
+}
+
+.detail-item:nth-child(2) {
+  animation: attachFromLeft 0.8s ease-out forwards;
+  transform: translateX(-100px) scale(0.8);
+}
+
+.detail-item:nth-child(3) {
+  animation: attachFromRight 0.8s ease-out forwards;
+  transform: translateX(100px) scale(0.8);
 }
 
 .detail-item:hover {
@@ -122,7 +137,15 @@ body {
   border-radius: 12px;
   transition: all 0.3s ease;
   background-color: transparent;
+  animation: attachFromBottom 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
 }
+
+.step:nth-child(1) { animation-delay: 0.3s; }
+.step:nth-child(2) { animation-delay: 0.5s; }
+.step:nth-child(3) { animation-delay: 0.7s; }
+.step:nth-child(4) { animation-delay: 0.9s; }
 
 .step:hover {
   transform: translateY(-5px);
@@ -276,5 +299,59 @@ h3 {
 
   .back-button a {
     width: fit-content;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes attachFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes attachFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes attachFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
