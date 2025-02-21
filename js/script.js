@@ -22,7 +22,35 @@ document.addEventListener("DOMContentLoaded", function () {
      */
     function updateLoader() {
       progress += Math.random() * 30;
-      if (progress > 100) progress = 100;
+      if (progress > 100) {
+        progress = 100;
+        
+        // Fade out loading screen
+        loadingScreen.style.transition = "opacity 0.5s ease";
+        loadingScreen.style.opacity = "0";
+
+        // Show content
+        header.style.transition = "opacity 0.5s ease";
+        content.style.transition = "opacity 0.5s ease";
+        header.style.opacity = "1";
+        content.style.opacity = "1";
+
+        // Enable scrolling and start animations
+        document.body.classList.add("loaded");
+
+        // Remove loading screen after animation
+        setTimeout(() => {
+          loadingScreen.remove();
+
+          // Restart all animations
+          document.querySelectorAll('[style*="animation"]').forEach((element) => {
+            element.style.animationPlayState = "running";
+          });
+        }, 500);
+
+        window.isLoading = false;
+        return; // Exit the function when loading is complete
+      }
 
       // Add requestAnimationFrame for smoother animation
       requestAnimationFrame(() => {
@@ -30,42 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loadingText.textContent = `${Math.round(progress)}%`;
       });
 
-      if (progress === 100) {
-        setTimeout(() => {
-          // Fade out loading screen
-          loadingScreen.style.transition = "opacity 0.5s ease";
-          loadingScreen.style.opacity = "0";
-
-          // Show content
-          header.style.transition = "opacity 0.5s ease";
-          content.style.transition = "opacity 0.5s ease";
-          header.style.opacity = "1";
-          content.style.opacity = "1";
-
-          // Enable scrolling and start animations
-          document.body.classList.add("loaded");
-
-          // Remove loading screen after animation
-          setTimeout(() => {
-            loadingScreen.remove();
-
-            // Restart all animations
-            document
-              .querySelectorAll('[style*="animation"]')
-              .forEach((element) => {
-                element.style.animationPlayState = "running";
-              });
-          }, 500);
-
-          window.isLoading = false;
-
-          // Initialize other functionality
-          initializeCards();
-          setupEventListeners();
-        }, 500);
-      } else {
-        setTimeout(updateLoader, 100);
-      }
+      setTimeout(updateLoader, 100);
     }
 
     // Start the loading animation
